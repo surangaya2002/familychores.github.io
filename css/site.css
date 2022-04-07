@@ -2,6 +2,7 @@
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+      background-color: teal; 
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -16,7 +17,7 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
+      background-color: rgb(195, 234, 157);
       color: white;
       padding: 15px;
     }
@@ -66,4 +67,113 @@ input[type=text], input[type=password] {
 {
   color: white  !important;
   opacity: 1;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;  
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.container {
+  min-height: 92%;
+  padding: 0;
+}
+
+/* Navbar */ 
+
+nav h1 {
+  color: white; 
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* Introduction index.html */ 
+
+.introduction_container {
+  height: 750px; 
+}
+
+.introduction{
+  position: relative;
+  top: 25%; 
+}
+
+.introduction h2{
+  font-size: 4em;
+  font-weight: 400; 
+  margin: 10px 0; 
+}
+
+.introduction p {
+  font-size: 1.5em; 
+  color: orange; 
+  font-weight: 300;
+  margin-bottom: 50px; 
+}
+
+.introduction a {
+  display: block;
+  width: 15%; 
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.introduction a:first-of-type {
+  background-color: teal; 
+}
+
+.introduction a:last-of-type {
+  color: black; 
+}
+
+/* Form login */ 
+.login_form {
+  height: 750px;
+}
+
+.login_form h2 {
+  margin-bottom: 35px;
+}
+
+form {
+  width: 25%;
+  margin: 0 auto; 
+  position: relative;
+  top: 25%; 
+}
+
+#floatingInput {
+  margin: 0; 
+  border-left: none; 
+
+}
+
+#floatingPassword {
+  margin: 0; 
+  border-left: none; 
+}
+
+.input-group {
+  margin: 10px 0; 
+}
+
+.input-group-addon {
+  background-color: white; 
+  color:teal ;
+}
+
+.form_button {
+  position: relative;
+  top: 28%; 
+  background-color: teal; 
+  width: 25%; 
+}
+
+footer {
+  height: 50px; 
+  margin-top: -50px; 
 }
