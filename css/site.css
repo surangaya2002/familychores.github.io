@@ -1,8 +1,15 @@
+    /* Vairables for colors in site */
+    :root {
+      --navColor: #4DA1A9;
+      --footerColor: #D7E8BA;
+      --titleColor: #FFA630;
+    }
+    
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
-      background-color: teal; 
+      background-color: var(--navColor); 
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -17,7 +24,7 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: rgb(195, 234, 157);
+      background-color: var(--footerColor);
       color: white;
       padding: 15px;
     }
@@ -124,7 +131,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .introduction p {
   font-size: 1.5em; 
-  color: orange; 
+  color: var(--titleColor); 
   font-weight: 300;
   margin-bottom: 50px; 
 }
@@ -136,7 +143,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 20px;
 }
 .introduction a:first-of-type {
-  background-color: teal; 
+  background-color: var(--navColor); 
 }
 
 .introduction a:last-of-type {
@@ -176,13 +183,13 @@ form {
 
 .input-group-addon {
   background-color: white; 
-  color:teal ;
+  color: var(--navColor) ;
 }
 
 .form_button {
   position: relative;
   top: 28%; 
-  background-color: teal; 
+  background-color: var(--navColor); 
   width: 25%; 
 }
 
