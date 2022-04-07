@@ -27,3 +27,31 @@ function addFamilyGoal() {
     var newList = "<li class='list-group-item'>" + title + "</li>"; 
     $(".family_score_list").append(newList); 
 }
+
+function addChore() {
+  var chore, score, reward, date, time, description;
+                chore = $("#txtChore").val();
+                score = $("#txtScore").val();
+                reward = $("#txtReward").val();
+                date = $("#txtDate").val();
+                time = $("#txtTime").val();
+                description = $("#txtDescription").val();
+
+                if (chore == "") {
+                  alert("Chore is required!");
+              } else {
+                  var table = "<tr><td>" + chore + "</td><td>" + score + "</td><td>" + reward + "</td><td>" + date + "</td><td>" + time + "</td><td>" + description + "</td></tr>";
+                  $("#tblChores").append(table);
+              }
+
+              clearChores();
+}
+
+function clearChores() {
+  $("#txtChore").val("");
+  $("#txtScore").val("");
+  $("#txtReward").val("");
+  $("#txtDate").val("");
+  $("#txtTime").val("");
+  $("#txtDescription").val("");
+}

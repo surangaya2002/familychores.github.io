@@ -255,3 +255,13 @@ footer {
   font-weight: 300;
   margin: 10px 0; 
 }
+
+.choresTableHeader
+{
+  background-color:rgb(195, 234, 157);
+}
+
+.leftAlign
+{
+  text-align: left;
+}
