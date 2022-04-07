@@ -274,3 +274,13 @@ footer {
 .fullWidth{
   width: 100%;
 }
+
+.choresTableHeader
+{
+  background-color:rgb(195, 234, 157);
+}
+
+.leftAlign
+{
+  text-align: left;
+}

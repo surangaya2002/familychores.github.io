@@ -40,13 +40,91 @@
 </nav>
   
 <div class="container-fluid text-center">    
+  <div class="col-sm-12"> 
+    <h1>Parent View</h1>
+    <p>Sample Descriptiopn</p>
+  </div>
   <div class="row content">
     <div class="col-sm-6">
+      
+      <!-- Family chore -->
+      <div class="family_score_container">
+        <h2>Chores</h2>
+        <h3>To Do</h3>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#choreModal">Add chore +</button>        
+      </div>
+      <div>
+        <table id="tblChores" class="table">
+          <thead>
+              <tr class="choresTableHeader">
+                  <th>Chore</th>
+                  <th>Score</th>
+                  <th>Reward</th>
+                  <th>Due Date</th>
+                  <th>Time</th>
+                  <th>Description</th>
+              </tr>
+          </thead>
+          <tbody></tbody>
+      </table>      
+      </div>
+        <!-- Modal to add goal to family goal-->
+<!-- Modal -->
+<div id="choreModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add Chore</h4>
+      </div>
+      <div class="modal-body leftAlign">
+
+        <div class="mb-3">
+          <label for="txtChore" class="form-label">Chore</label>
+          <input type="text" name="Chore" id="txtChore" class="form-control" />
+        </div>
+        
+        <div class="mb-3">
+          <label for="txtScore" class="form-label">Score</label>
+          <input type="text" name="Score" id="txtScore" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+          <label for="txtReward" class="form-label">Set Reward</label>
+          <input type="text" class="form-control" id="txtReward">
+        </div>
+
+        <div class="mb-3">
+          <label for="txtDate" class="form-label">Set Due Date</label>
+          <input type="date" class="form-control" id="txtDate">
+        </div>
+
+        <div class="mb-3">
+          <label for="txtTime" class="form-label">Set Time</label>
+          <input type="time" class="form-control" id="txtTime">
+        </div>
+
+        <div class="mb-3">
+          <label for="txtDescription" class="form-label">Set Description</label>
+          <textarea class="form-control" id="txtDescription" rows="3"></textarea>
+        </div>
+      
+      </div>
+       <div class="modal-footer">
+        <button type='button' id='btnAdd' data-dismiss="modal" onclick="addChore()">Add</button>
+        <button type='button' id='btnClear' onclick="clearChores()">Clear</button>
+       </div> 
+  </div>
+
+  </div>
+</div>
     </div>
+
     <div class="col-sm-6"> 
-      <h1>Parent View</h1>
-      <p>Sample Descriptiopn</p>
+     <!--  <h1>Parent View</h1>
+      <p>Sample Descriptiopn</p> -->
       <!-- Family score -->
       <div class="family_score_container">
         <h2>Family Goals</h2>
