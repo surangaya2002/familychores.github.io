@@ -11,10 +11,12 @@
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="css/normalize.css">
 </head>
-<body>
+<body class="bodyFlex">
 
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
+      <span class="navbar-brand navbar-custom">Family Chores</span>
+
+        <!-- <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
@@ -24,17 +26,16 @@
             </button>
             <h1 class="navbar-brand" href="#">Family Chores</h1>
           </div>
-          </div><!--/.nav-collapse -->
-        </div>
+          </div>
+        </div> -->
       </nav>
   
-<div class="container">    
-  <div class="row">
-
-    <div class="col text-center login_form"> 
+<div>    
+ 
+    <div class="text-center login_form"> 
 
       <form>
-        <h2 class="display-1">Login</h2>
+        <h2>Login</h2>
         <div class="input-group">
             <div class="input-group-addon">
                 <span class="glyphicon glyphicon-user"></span>
@@ -52,15 +53,15 @@
             </div>
         </div>
     </form>        
-            <button class="btn btn-primary form_button" onclick="navigateLogin()" role="button">Login</button>
 
+            <button class="btn btn-primary roundButton form_button" style=" width: 25%; min-width: 200px;" onclick="navigateLogin()" role="button">Login</button>
  
     </div>
 
-  </div>
+  
 </div>
 
-  <footer class="container-fluid text-center">
+  <footer class="container-fluid text-center fullWidth">
     <p></p>
   </footer>
 

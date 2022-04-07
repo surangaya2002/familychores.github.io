@@ -4,6 +4,14 @@
       --footerColor: #D7E8BA;
       --titleColor: #FFA630;
     }
+
+    .bodyFlex{
+      min-height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
     
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -113,14 +121,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Introduction index.html */ 
-
-.introduction_container {
-  height: 750px; 
+.introduction{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
 
-.introduction{
-  position: relative;
-  top: 25%; 
+.introduction p {
+  font-size: 1.5em; 
+  color: var(--titleColor); 
+  font-weight: 300;
+  margin-bottom: 50px; 
 }
 
 .introduction h2{
@@ -137,10 +149,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .introduction a {
-  display: block;
-  width: 15%; 
-  margin: 0 auto;
-  border-radius: 20px;
 }
 .introduction a:first-of-type {
   background-color: var(--navColor); 
@@ -152,24 +160,24 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Form login */ 
 .login_form {
-  height: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login_form h2 {
   margin-bottom: 35px;
+  margin-top: 0px;;
 }
 
 form {
-  width: 25%;
-  margin: 0 auto; 
-  position: relative;
-  top: 25%; 
+  min-width: 25%;
+  max-width: 300px;
 }
 
 #floatingInput {
   margin: 0; 
   border-left: none; 
-
 }
 
 #floatingPassword {
@@ -178,7 +186,7 @@ form {
 }
 
 .input-group {
-  margin: 10px 0; 
+  margin: 20px 0; 
 }
 
 .input-group-addon {
@@ -209,7 +217,7 @@ footer {
 
 .family_score_container h2 {
   text-align: left;
-  color: orange; 
+  color: var(--titleColor); 
   order: 1; 
   width: 100%
 }
@@ -244,7 +252,7 @@ footer {
 }
 
 #goalModal .modal-header{
-  background-color: teal !important; 
+  background-color: var(--navColor) !important; 
 }
 
 #goalModal .modal-body label{
@@ -254,4 +262,15 @@ footer {
   letter-spacing: 1px;
   font-weight: 300;
   margin: 10px 0; 
+}
+
+
+/* Make the button round **/
+.roundButton{
+  border-radius: 30px;
+}
+
+/* Set full width **/
+.fullWidth{
+  width: 100%;
 }
