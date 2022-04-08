@@ -1,50 +1,58 @@
-$(document).ready(function(){
-
-}); 
-
+$(document).ready(function () {});
 
 function navigateLogin() {
-     
-    var username = document.getElementById("floatingInput").value;
-    var password = document.getElementById("floatingPassword").value;
+  var username = document.getElementById("floatingInput").value;
+  var password = document.getElementById("floatingPassword").value;
 
-    if(username == 'parent' && password == 'parent')
-    {
-      window.location.href = "parentview.html";
-    }
-    else if(username == 'child' && password == 'child')
-    {
-      window.location.href = "childview.html";
-    }
+  if (username == "parent" && password == "parent") {
+    window.location.href = "parentview.html";
+  } else if (username == "child" && password == "child") {
+    window.location.href = "childview.html";
   }
+}
+
 
 function addFamilyGoal() {
-    var title = document.getElementById("goal_title").value;
-    //var description = document.getElementById("goal_description").value; 
-    //var reward = document.getElementById("goal_reward").value;  
+  var title = document.getElementById("goal_title").value;
+  //var description = document.getElementById("goal_description").value;
+  //var reward = document.getElementById("goal_reward").value;
 
-    // Create new li element 
-    var newList = "<li class='list-group-item'>" + title + "</li>"; 
-    $(".family_score_list").append(newList); 
+  // Create new li element
+  var newList = "<li class='list-group-item'>" + title + "</li>";
+  $(".family_score_list").append(newList);
 }
+
 
 function addChore() {
   var chore, score, reward, date, time, description;
-                chore = $("#txtChore").val();
-                score = $("#txtScore").val();
-                reward = $("#txtReward").val();
-                date = $("#txtDate").val();
-                time = $("#txtTime").val();
-                description = $("#txtDescription").val();
+  chore = $("#txtChore").val();
+  score = $("#txtScore").val();
+  reward = $("#txtReward").val();
+  date = $("#txtDate").val();
+  time = $("#txtTime").val();
+  description = $("#txtDescription").val();
 
-                if (chore == "") {
-                  alert("Chore is required!");
-              } else {
-                  var table = "<tr><td>" + chore + "</td><td>" + score + "</td><td>" + reward + "</td><td>" + date + "</td><td>" + time + "</td><td>" + description + "</td></tr>";
-                  $("#tblChores").append(table);
-              }
+  if (chore == "") {
+    alert("Chore is required!");
+  } else {
+    var table =
+      "<tr><td>" +
+      chore +
+      "</td><td>" +
+      score +
+      "</td><td>" +
+      reward +
+      "</td><td>" +
+      date +
+      "</td><td>" +
+      time +
+      "</td><td>" +
+      description +
+      "</td></tr>";
+    $("#tblChores").append(table);
+  }
 
-              clearChores();
+  clearChores();
 }
 
 function clearChores() {
@@ -54,4 +62,15 @@ function clearChores() {
   $("#txtDate").val("");
   $("#txtTime").val("");
   $("#txtDescription").val("");
+}
+
+
+function acceptChore(itemId) {
+  $(itemId).remove();
+  console.log("accept chore");
+}
+
+function declineChore(itemId) {
+  $(itemId).remove();
+  console.log("decline chore");
 }

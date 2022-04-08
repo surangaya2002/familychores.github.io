@@ -157,31 +157,57 @@
             </div>
           </div>
 
+          <!-- Accept component -->
           <div class="col">
-            <div class="to_accept_container">
+            <div class="toAcceptContainer">
               <h3>To Accept</h3>
-              <ul class="to_accept_list">
-                <li>
-                  Clean bedroom
-                  <div class="accept_icons">
-                    <span
-                      id="accept_chore_1"
-                      class="glyphicon glyphicon-ok"
-                    ></span>
-                    <span
-                      id="decline_chore_1"
-                      class="glyphicon glyphicon-remove"
-                    ></span>
+              <ul>
+                <li id="toAcceptListItem1">
+                  <div class="listItemRow">
+                    Clean bedroom
+                    <div class="acceptIcons">
+                      <span title="accept" class="dot" onclick="acceptChore(toAcceptListItem1)">
+                          <span
+                          id="accept_chore_1"
+                          class="glyphicon glyphicon-ok"
+                        ></span>
+                      </span>
+  
+                      <span title="decline" class="dot" onclick="declineChore(toAcceptListItem1)">
+                        <span
+                        id="decline_chore_1"
+                        class="glyphicon glyphicon-remove"
+                      ></span>
+                    </span>
+
+                    <button class="btn btn-primary iconButton glyphicon glyphicon-menu-down" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    </i>
+                    </button>
                   </div>
+                </div>
+
+                  <div class="collapse listItemContent" id="collapseExample">
+                    <div class="card card-body">
+                      <p>
+                        Done by: Elsa
+                        <br><br>Score: 10 points
+                        <br>Reward: Icecream
+                        <br><br>Due date: April 28
+                        <br>Time interval: 08.00 - 18.00
+                        <br><br>Description: Milk, apples and eggs
+                      </p>
+                    </div>
+                  </div> 
+            
                 </li>
               </ul>
             </div>
           </div>
+
+
         </div>
 
         <div class="col-sm-6">
-          <!--  <h1>Parent View</h1>
-      <p>Sample Descriptiopn</p> -->
           <!-- Family score -->
           <div class="family_score_container">
             <h2>Family Goals</h2>

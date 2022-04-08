@@ -288,7 +288,7 @@ footer {
 
 
 /* To Accept List*/
-.to_accept_container {
+.toAcceptContainer {
   width: 100%; 
   display: flex;
   flex-direction: column;
@@ -296,7 +296,7 @@ footer {
   justify-content: space-around;
 }
 
-.to_accept_list li {
+.toAcceptContainer li {
   background-color: var(--footerColor);
   margin: 10px 0; 
   min-height: 50px;
@@ -307,26 +307,63 @@ footer {
   list-style-type: none;
   
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
 
   border-radius: 5px;
   padding: 10px;
 }
 
-.to_accept_container ul {
+.toAcceptContainer ul {
   padding: 0;
   width: 100%; 
 }
 
-.accept_icons{
-  width: 15%;
+.acceptIcons{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.dot{
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  margin-right: 15px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--navColor);
+  cursor: pointer;
+}
+
+.iconButton, .iconButton:hover, .iconButton:active, .iconButton:visited {
+  background: var(--footerColor) !important;
+  color: black !important;
+  border: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none
+}
+
+.listItemRow{
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-
-
+.listItemContent{
+  background: white;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
