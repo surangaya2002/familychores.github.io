@@ -1,185 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Family Chores</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/site.css">
-  
-  <script>
-    
-    </script>
-</head>
-<body>
+  <head>
+    <title>Family Chores</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/site.css" />
+  </head>
+  <body class="bodyFlex">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="#">Logo</a> -->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Family Chores</a></li>
+            <li><a href="#">Parents</a></li>
+            <li><a href="#">Children</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#"
+                ><span class="glyphicon glyphicon-user"></span> Parent</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <!-- <a class="navbar-brand" href="#">Logo</a> -->
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Family Chores</a></li>
-        <li><a href="#">Parents</a></li>
-        <li><a href="#">Children</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Parent</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-  
-<div class="container-fluid text-center">    
-  <div class="col-sm-12"> 
+    <div class="container-fluid text-center">
+      <!-- <div class="col-sm-12"> 
     <h1>Parent View</h1>
     <p>Sample Descriptiopn</p>
-  </div>
-  <div class="row content">
-    <div class="col-sm-6">
-      
-      <!-- Family chore -->
-      <div class="family_score_container">
-        <h2>Chores</h2>
-        <h3>To Do</h3>
-        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#choreModal">Add chore +</button>        
-      </div>
-      <div>
-        <table id="tblChores" class="table">
-          <thead>
-              <tr class="choresTableHeader">
+  </div> -->
+      <div class="row content">
+        <div class="col-sm-6">
+          <!-- Family chore -->
+          <div class="family_score_container">
+            <h2>Chores</h2>
+            <h3>To Do</h3>
+            <button
+              type="button"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#choreModal"
+            >
+              Add chore +
+            </button>
+          </div>
+          <div>
+            <table id="tblChores" class="table">
+              <thead>
+                <tr class="choresTableHeader">
                   <th>Chore</th>
                   <th>Score</th>
                   <th>Reward</th>
                   <th>Due Date</th>
                   <th>Time</th>
                   <th>Description</th>
-              </tr>
-          </thead>
-          <tbody></tbody>
-      </table>      
-      </div>
-        <!-- Modal to add goal to family goal-->
-<!-- Modal -->
-<div id="choreModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <!-- Modal to add goal to family goal-->
+          <!-- Modal -->
+          <div id="choreModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                  <h4 class="modal-title">Add Chore</h4>
+                </div>
+                <div class="modal-body leftAlign">
+                  <div class="mb-3">
+                    <label for="txtChore" class="form-label">Chore</label>
+                    <input
+                      type="text"
+                      name="Chore"
+                      id="txtChore"
+                      class="form-control"
+                    />
+                  </div>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Chore</h4>
-      </div>
-      <div class="modal-body leftAlign">
+                  <div class="mb-3">
+                    <label for="txtScore" class="form-label">Score</label>
+                    <input
+                      type="text"
+                      name="Score"
+                      id="txtScore"
+                      class="form-control"
+                    />
+                  </div>
 
-        <div class="mb-3">
-          <label for="txtChore" class="form-label">Chore</label>
-          <input type="text" name="Chore" id="txtChore" class="form-control" />
+                  <div class="mb-3">
+                    <label for="txtReward" class="form-label">Set Reward</label>
+                    <input type="text" class="form-control" id="txtReward" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="txtDate" class="form-label">Set Due Date</label>
+                    <input type="date" class="form-control" id="txtDate" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="txtTime" class="form-label">Set Time</label>
+                    <input type="time" class="form-control" id="txtTime" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="txtDescription" class="form-label"
+                      >Set Description</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="txtDescription"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    id="btnAdd"
+                    data-dismiss="modal"
+                    onclick="addChore()"
+                  >
+                    Add
+                  </button>
+                  <button type="button" id="btnClear" onclick="clearChores()">
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="to_accept_container">
+              <h3>To Accept</h3>
+              <ul class="to_accept_list">
+                <li>
+                  Clean bedroom
+                  <div class="accept_icons">
+                    <span
+                      id="accept_chore_1"
+                      class="glyphicon glyphicon-ok"
+                    ></span>
+                    <span
+                      id="decline_chore_1"
+                      class="glyphicon glyphicon-remove"
+                    ></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        
-        <div class="mb-3">
-          <label for="txtScore" class="form-label">Score</label>
-          <input type="text" name="Score" id="txtScore" class="form-control" />
-        </div>
 
-        <div class="mb-3">
-          <label for="txtReward" class="form-label">Set Reward</label>
-          <input type="text" class="form-control" id="txtReward">
-        </div>
-
-        <div class="mb-3">
-          <label for="txtDate" class="form-label">Set Due Date</label>
-          <input type="date" class="form-control" id="txtDate">
-        </div>
-
-        <div class="mb-3">
-          <label for="txtTime" class="form-label">Set Time</label>
-          <input type="time" class="form-control" id="txtTime">
-        </div>
-
-        <div class="mb-3">
-          <label for="txtDescription" class="form-label">Set Description</label>
-          <textarea class="form-control" id="txtDescription" rows="3"></textarea>
-        </div>
-      
-      </div>
-       <div class="modal-footer">
-        <button type='button' id='btnAdd' data-dismiss="modal" onclick="addChore()">Add</button>
-        <button type='button' id='btnClear' onclick="clearChores()">Clear</button>
-       </div> 
-  </div>
-
-  </div>
-</div>
-    </div>
-
-    <div class="col-sm-6"> 
-     <!--  <h1>Parent View</h1>
+        <div class="col-sm-6">
+          <!--  <h1>Parent View</h1>
       <p>Sample Descriptiopn</p> -->
-      <!-- Family score -->
-      <div class="family_score_container">
-        <h2>Family Goals</h2>
-        <h3>To Reach</h3>
-        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#goalModal">Add goal +</button>
-        <ul class="list-group family_score_list">
-          <li class="list-group-item">Complete 10 chores</li>
-        </ul>
-      </div>
-        <!-- Modal to add goal to family goal-->
-<!-- Modal -->
-<div id="goalModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+          <!-- Family score -->
+          <div class="family_score_container">
+            <h2>Family Goals</h2>
+            <h3>To Reach</h3>
+            <button
+              type="button"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-target="#goalModal"
+            >
+              Add goal +
+            </button>
+            <ul class="list-group family_score_list">
+              <li class="list-group-item">Complete 10 chores</li>
+            </ul>
+          </div>
+          <!-- Modal to add goal to family goal-->
+          <!-- Modal -->
+          <div id="goalModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                  </button>
+                  <h4 class="modal-title">Add a Family Goal</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="goal_title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="goal_title" />
+                  </div>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add a Family Goal</h4>
-      </div>
-      <div class="modal-body">
+                  <div class="mb-3">
+                    <label for="goal_description" class="form-label"
+                      >Description</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="goal_description"
+                      rows="3"
+                    ></textarea>
+                  </div>
 
-        <div class="mb-3">
-          <label for="goal_title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="goal_title">
+                  <div class="mb-3">
+                    <label for="goal_reward" class="form-label"
+                      >Possible reward</label
+                    >
+                    <input type="text" class="form-control" id="goal_reward" />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    onclick="addFamilyGoal()"
+                    class="btn btn-default"
+                    data-dismiss="modal"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
-        <div class="mb-3">
-          <label for="goal_description" class="form-label">Description</label>
-          <textarea class="form-control" id="goal_description" rows="3"></textarea>
-        </div>
-
-        <div class="mb-3">
-          <label for="goal_reward" class="form-label">Possible reward</label>
-          <input type="text" class="form-control" id="goal_reward">
-        </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" onclick="addFamilyGoal()" class="btn btn-default" data-dismiss="modal">Save</button>
       </div>
     </div>
 
-  </div>
-</div>
-
-    </div>
-
-  </div>
-</div>
-
-<script src="js/main.js"></script>
- 
-</body>
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+    <script src="js/main.js"></script>
+  </body>
+  <footer class="container-fluid text-center fullWidth">
+    <p></p>
+  </footer>
 </html>
