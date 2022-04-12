@@ -19,7 +19,7 @@
     }
 
     .box{
-      margin: 20px;
+      margin: 40px;
     }
     
     .lightBackground{
@@ -403,4 +403,92 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   padding: 5px;
   margin-top: 5px;
+}
+
+
+/* ChildView */
+.profileBox{
+  background: var(--lightNavColor);
+  border-radius: 20px;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.profileBox h1{
+  color: var(--navColor);
+  font-weight: bold;
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.profileBox h2{
+  color: var(--progressBarColor);
+  font-weight: bold;
+  font-size: 1.7em;
+  margin: 0;
+}
+
+/* Large Coin */
+.coinLayer1{
+  height: 45px;
+  width: 45px;
+  background-color: #FCB26E;
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 10px;
+}
+.coinLayer2{
+  height: 35px;
+  width: 35px;
+  background-color: #FCCC6E;
+  
+  border: solid white 1px;
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.coinText{
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.profileText{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.scoreLine{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profileBoxIcon{
+  font-size: 6em;
+  color: var(--navColor)
+}
+
+.editBox{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
 }

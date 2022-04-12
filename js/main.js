@@ -1,4 +1,4 @@
-$(document).ready(function () {});
+$(document).ready(function () {updateScore();});
 
 function navigateLogin() {
   var username = document.getElementById("floatingInput").value;
@@ -73,4 +73,15 @@ function acceptChore(itemId) {
 function declineChore(itemId) {
   $(itemId).remove();
   console.log("decline chore");
+}
+
+
+// Update data 
+function updateScore() {
+
+  const score = 1200;
+  
+  // count score...
+
+  $("#childScore").html(score);
 }
