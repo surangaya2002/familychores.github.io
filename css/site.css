@@ -1,18 +1,31 @@
     /* Vairables for colors in site */
     :root {
       --navColor: #4DA1A9;
+      --lightNavColor: rgba(215, 232, 186, 0.3);
+
       --footerColor: #D7E8BA;
+      
       --titleColor: #FFA630;
+
+      --childGoalColor: rgba(187, 186, 232, 0.7);
+      --progressBarColor: rgba(146, 144, 213, 1);
     }
 
     .bodyFlex{
-      min-height: 100%;
       width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
+    .box{
+      margin: 20px;
+    }
     
+    .lightBackground{
+      background: var(--lightNavColor);
+    }
+
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -33,8 +46,35 @@
     /* Set black background color, white text and some padding */
     footer {
       background-color: var(--footerColor);
-      color: white;
+      color: black;
       padding: 15px;
+    }
+
+    footer h5{
+      font-weight: bold;
+      margin: 0;
+ 
+    }
+
+    footer p{
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    footer .line{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    
+    .line p{
+      margin: 0;
+      padding: 0;
+    }
+
+    footer span{
+      padding-right: 5px;
     }
     
     .modal-header {
@@ -127,43 +167,44 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Introduction index.html */ 
 .introduction{
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
-}
-
-.introduction p {
-  font-size: 1.5em; 
-  color: var(--titleColor); 
-  font-weight: 300;
-  margin-bottom: 50px; 
+  justify-content: center;
 }
 
 .introduction h2{
-  font-size: 4em;
+  font-size: 6em;
   font-weight: 400; 
-  margin: 10px 0; 
+  margin: 10px 0;
+  color: var(--navColor); 
 }
 
 .introduction p {
-  font-size: 1.5em; 
+  font-size: 2.7em; 
   color: var(--titleColor); 
   font-weight: 300;
-  margin-bottom: 50px; 
+  margin-bottom: 70px; 
 }
 
-.introduction a {
-}
-.introduction a:first-of-type {
+/* .introduction a:first-of-type {
   background-color: var(--navColor); 
-}
+} */
 
 .introduction a:last-of-type {
-  color: black; 
+  color: black;
 }
 
 /* Form login */ 
+.login{
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10%;
+}
+
 .login_form {
   display: flex;
   flex-direction: column;
@@ -172,12 +213,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .login_form h2 {
   margin-bottom: 35px;
-  margin-top: 0px;;
-}
-
-form {
-  min-width: 25%;
-  max-width: 300px;
 }
 
 #floatingInput {
@@ -199,17 +234,6 @@ form {
   color: var(--navColor) ;
 }
 
-.form_button {
-  position: relative;
-  top: 28%; 
-  background-color: var(--navColor); 
-  width: 25%; 
-}
-
-footer {
-  height: 50px; 
-  margin-top: -50px; 
-}
 
 /* Parent view */ 
 .family_score_container {
@@ -273,6 +297,14 @@ footer {
 /* Make the button round **/
 .roundButton{
   border-radius: 30px;
+  color: white;
+  background: var(--navColor);
+  width: 12%; 
+  min-width: 200px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
 }
 
 /* Set full width **/
