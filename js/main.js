@@ -13,13 +13,31 @@ function navigateLogin() {
 
 
 function addFamilyGoal() {
-  var title = document.getElementById("goal_title").value;
-  //var description = document.getElementById("goal_description").value;
+  var title = $("#goal_title").val();
+  var description = $("#goal_description").val();
+
   //var reward = document.getElementById("goal_reward").value;
 
-  // Create new li element
-  var newList = "<li class='list-group-item'>" + title + "</li>";
-  $(".family_score_list").append(newList);
+  if(title == "" ) {
+    alert("Title is mandatory!");
+    clearFamilyGoals(); 
+    return 0; 
+  } else if (description == "") {
+    alert("A Chore needs a description!");
+    clearFamilyGoals();
+    return 0; 
+  } else {
+      // Create new li element
+    var newList = "<li class='list-group-item'>" + title + "</li>";
+    $(".family_score_list").append(newList);
+  }
+}
+
+function removeChore(chore_text) {
+  /* in the function onclick the title is chore_text ->
+    we check for a row in table with the same title to remove it 
+  */
+  $('#tblChores tr:contains(' + chore_text + ')').remove();   
 }
 
 
@@ -48,7 +66,7 @@ function addChore() {
       time +
       "</td><td>" +
       description +
-      "</td></tr>";
+      '<span class="glyphicon glyphicon-remove-circle" onclick="removeChore(\'' + chore + '\')" aria-hidden="true"></span></td></tr>';
     $("#tblChores").append(table);
   }
 
@@ -62,6 +80,12 @@ function clearChores() {
   $("#txtDate").val("");
   $("#txtTime").val("");
   $("#txtDescription").val("");
+}
+
+function clearFamilyGoals() {
+  $("#goal_title").val(""); 
+  $("#goal_description").val(""); 
+  $("#goal_reward").val(""); 
 }
 
 

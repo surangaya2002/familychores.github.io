@@ -234,6 +234,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--navColor) ;
 }
 
+/* Mandatory feedback */ 
+
+.mandatory {
+  color: red; 
+}
+
 
 /* Parent view */ 
 .family_score_container {
@@ -492,3 +498,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-start;
   justify-content: flex-start;
 }
+
+/* Table chores parentview */
+#tblChores tr td:last-of-type span {
+  color: var(--navColor); 
+  float: right; 
+  cursor: pointer;
+  line-height: 1.42857143;
+}  
