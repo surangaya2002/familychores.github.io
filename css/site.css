@@ -53,7 +53,7 @@
     footer h5{
       font-weight: bold;
       margin: 0;
- 
+
     }
 
     footer p{
@@ -372,8 +372,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dot{
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   background-color: white;
   border-radius: 50%;
   margin-right: 15px;
@@ -472,6 +472,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   font-size: 1.5em;
   margin: 0;
+  padding: 0;
 }
 
 .profileText{
@@ -497,6 +498,31 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
+}
+
+.childContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.childContainer h2{
+  color: var(--titleColor);
+
+}
+
+.listItemRow .coinLayer1{
+  height: 35px;
+  width: 35px;
+}
+
+.listItemRow .coinLayer2{
+  height: 25px;
+  width: 25px;
+  font-size: 0.5em;
+}
+.childContainer .dot{
+  cursor: auto;
 }
 
 /* Table chores parentview */

@@ -1,4 +1,7 @@
-$(document).ready(function () {updateScore();});
+$(document).ready(function () {
+  updateScore();
+  updateChildToDo();
+});
 
 function navigateLogin() {
   var username = document.getElementById("floatingInput").value;
@@ -102,10 +105,62 @@ function declineChore(itemId) {
 
 // Update data 
 function updateScore() {
-
-  const score = 1200;
-  
-  // count score...
-
+  const score = 1200; 
+  // TODO count score...
   $("#childScore").html(score);
+}
+
+function updateChildToDo() {
+  //temp mockdata (next step iterate lokal storage)
+  let itemData1 = {
+    id: "childToDo1",
+    chore: "Take out the garbage",
+    score: 10,
+    reward: "Movie",
+    due: "",
+    time: "",
+    desc: "",
+  }
+  let itemData2 = {
+    id: "childToDo2",
+    chore: "Remove dishes from dishwasher",
+    score: 15,
+    reward: "",
+    due: "",
+    time: "",
+    desc: "",
+  }
+  let data = [itemData1, itemData2];
+
+  // Make the cards
+  data.forEach(itemData => {
+
+    let scoreAndRewardSection = "";
+    if (itemData.score != "") {
+      scoreAndRewardSection += "<div class='scoreLine'> <div class='coinLayer1'> <div class='coinLayer2'> <p class='coinText'>"+ itemData.score +"</p> </div> </div></div>";
+    }
+    if (itemData.reward != "") {
+      scoreAndRewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
+    }
+
+    let li = "<li id=item'" + itemData.id + "'> "+
+    "<div class='listItemRow'>" + 
+    itemData.chore + "<div class='acceptIcons'> <div id='rewardrow"+ itemData.id +"' class='acceptIcons'> " +
+    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  itemData.id + "' aria-expanded='false' aria-controls='"+  itemData.id + "'></i></button>" +
+    "</div> </div> </div> <div class='collapse listItemContent' id='"+  itemData.id + "'> <div class='card card-body'> <p> Score: " + 
+    itemData.score + " points<br>Reward: " + 
+    itemData.reward + "<br><br>Due date: " + 
+    itemData.due + "<br>Time interval: " + 
+    itemData.time + "<br><br>Description: " + 
+    itemData.desc + "</p> </div> </div> </li>";
+
+    //TODO add DONE button
+
+    $("#childToDoList").append(li);
+    $("#rewardrow" + itemData.id).prepend(scoreAndRewardSection);      
+  });
+
+
+
+
 }
