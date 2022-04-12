@@ -146,15 +146,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px 0; 
 }
 
-.introduction p {
-  font-size: 1.5em; 
-  color: var(--titleColor); 
-  font-weight: 300;
-  margin-bottom: 50px; 
-}
-
-.introduction a {
-}
 .introduction a:first-of-type {
   background-color: var(--navColor); 
 }
@@ -372,3 +363,12 @@ footer {
   padding: 5px;
   margin-top: 5px;
 }
+
+/* Table chores parentview */
+
+#tblChores tr td:last-of-type span {
+  color: var(--navColor); 
+  float: right; 
+  cursor: pointer;
+  line-height: 1.42857143;
+}  

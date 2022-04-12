@@ -22,6 +22,13 @@ function addFamilyGoal() {
   $(".family_score_list").append(newList);
 }
 
+function removeChore(chore_text) {
+  /* in the function onclick the title is chore_text ->
+    we check for a row in table with the same title to remove it 
+  */
+  $('#tblChores tr:contains(' + chore_text + ')').remove();   
+}
+
 
 function addChore() {
   var chore, score, reward, date, time, description;
@@ -48,7 +55,7 @@ function addChore() {
       time +
       "</td><td>" +
       description +
-      "</td></tr>";
+      '<span class="glyphicon glyphicon-remove-circle" onclick="removeChore(\'' + chore + '\')" aria-hidden="true"></span></td></tr>';
     $("#tblChores").append(table);
   }
 
