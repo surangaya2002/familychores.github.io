@@ -313,6 +313,13 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
 }
 
+.smallRoundButton{
+  border-radius: 30px;
+  color: white;
+  background: var(--navColor);
+  border: none;
+}
+
 /* Set full width **/
 .fullWidth{
   width: 100%;
@@ -523,6 +530,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 .childContainer .dot{
   cursor: auto;
+}
+
+.cardButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.cardSections{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Table chores parentview */

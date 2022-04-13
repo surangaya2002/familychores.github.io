@@ -1,7 +1,4 @@
-$(document).ready(function () {
-  updateScore();
-  updateChildToDo();
-});
+$(document).ready(function () { });
 
 function navigateLogin() {
   var username = document.getElementById("floatingInput").value;
@@ -13,7 +10,6 @@ function navigateLogin() {
     window.location.href = "childview.html";
   }
 }
-
 
 function addFamilyGoal() {
   var title = $("#goal_title").val();
@@ -162,8 +158,4 @@ function updateChildToDo() {
     $("#childToDoList").append(li);
     $("#rewardrow" + itemData.id).prepend(scoreAndRewardSection);      
   });
-
-
-
-
 }
