@@ -45,42 +45,13 @@ function removeChore(chore_text) {
 
 
 function addChore() {
-  // var chore, score, reward, date, time, description;
-  // chore = $("#txtChore").val();
-  // score = $("#txtScore").val();
-  // reward = $("#txtReward").val();
-  // date = $("#txtDate").val();
-  // time = $("#txtTime").val();
-  // description = $("#txtDescription").val();
-
-  // if (chore == "") {
-  //   alert("Chore is required!");
-  // } else {
-  //   var table =
-  //     "<tr><td>" +
-  //     chore +
-  //     "</td><td>" +
-  //     score +
-  //     "</td><td>" +
-  //     reward +
-  //     "</td><td>" +
-  //     date +
-  //     "</td><td>" +
-  //     time +
-  //     "</td><td>" +
-  //     description +
-  //     '<span class="glyphicon glyphicon-remove-circle" onclick="removeChore(\'' + chore + '\')" aria-hidden="true"></span></td></tr>';
-  //   $("#tblChores").append(table);
-  // }
-
-
   if ( $("#txtChore").val() == "") {
     alert("Chore is required!");
     } else {
     
     let itemData = {
       id: "ParentToDo" + Date.now(),
-      chore:   $("#txtChore").val(),
+      chore: $("#txtChore").val(),
       score: $("#txtScore").val(),
       reward: $("#txtReward").val(),
       due: $("#txtDate").val(),
@@ -90,25 +61,21 @@ function addChore() {
     let data = [itemData];
   
     // Make the card
-    data.forEach(itemData => {
-  
+    data.forEach(itemData => { 
       let li = "<li id=itemitemo'" + itemData.id + "'> "+
       "<div class='listItemRow'>" + 
       itemData.chore + "<div class='acceptIcons'> <div id='rewardrow"+ itemData.id +"' class='acceptIcons'> " +
       "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  itemData.id + "' aria-expanded='false' aria-controls='"+  itemData.id + "'></i></button>" +
       "</div> </div> </div> <div class='collapse listItemContent' id='"+  itemData.id + "'> <div class='card card-body'> <p> Score: " + 
       itemData.score + " points<br>Reward: " + 
-      itemData.reward + "<br><br>Due date: " + 
-      itemData.due + "<br>Time interval: " + 
+      itemData.reward + "<br><br>Due Date: " + 
+      itemData.due + "<br>Time Interval: " + 
       itemData.time + "<br><br>Description: " + 
       itemData.desc + "</p> </div> </div> </li>";
       
       $("#tblChores").append(li);
     });
   }
-   
-
-
   clearChores();
 }
 
@@ -185,8 +152,8 @@ function updateChildToDo() {
     "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  itemData.id + "' aria-expanded='false' aria-controls='"+  itemData.id + "'></i></button>" +
     "</div> </div> </div> <div class='collapse listItemContent' id='"+  itemData.id + "'> <div class='card card-body'> <p> Score: " + 
     itemData.score + " points<br>Reward: " + 
-    itemData.reward + "<br><br>Due date: " + 
-    itemData.due + "<br>Time interval: " + 
+    itemData.reward + "<br><br>Due Date: " + 
+    itemData.due + "<br>Time Interval: " + 
     itemData.time + "<br><br>Description: " + 
     itemData.desc + "</p> </div> </div> </li>";
 

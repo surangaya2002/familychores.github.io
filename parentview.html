@@ -53,7 +53,6 @@
 
     <div class="box">
       <div class="container-fluid text-center">
-
         <div class="row content">
           <div class="col-sm-6">
             <!-- Family chore -->
@@ -64,9 +63,8 @@
                 type="button"
                 class="btn btn-link"
                 data-toggle="modal"
-                data-target="#choreModal"
-              >
-                Add chore +
+                data-target="#choreModal">
+                Add Chore +
               </button>
             </div>
             <div class="toAcceptContainer">
@@ -75,22 +73,9 @@
                   <!-- generates ToDo:s here -->
 
               </ul>
-              <!-- <table id="tblChores" class="table">
-                <thead>
-                  <tr class="choresTableHeader">
-                    <th>Chore</th>
-                    <th>Score</th>
-                    <th>Reward</th>
-                    <th>Due Date</th>
-                    <th>Time</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table> -->
             </div>
-            <!-- Modal to add goal to family goal-->
-            <!-- Modal -->
+
+            <!-- Modal to add chore-->
             <div id="choreModal" class="modal fade" role="dialog">
               <div class="modal-dialog">
                 <!-- Modal content-->
@@ -138,9 +123,7 @@
                     </div>
     
                     <div class="mb-3">
-                      <label for="txtDescription" class="form-label"
-                        >Set Description</label
-                      >
+                      <label for="txtDescription" class="form-label">Set Description</label>
                       <textarea
                         class="form-control"
                         id="txtDescription"
@@ -153,8 +136,7 @@
                       type="button"
                       id="btnAdd"
                       data-dismiss="modal"
-                      onclick="addChore()"
-                    >
+                      onclick="addChore()">
                       Add
                     </button>
                     <button type="button" id="btnClear" onclick="clearChores()">
@@ -224,7 +206,7 @@
                 data-toggle="modal"
                 data-target="#goalModal"
               >
-                Add goal +
+                Add Goal +
               </button>
               <ul class="list-group family_score_list">
                 <li class="list-group-item">Complete 10 chores</li>
