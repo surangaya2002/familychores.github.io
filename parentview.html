@@ -4,29 +4,20 @@
     <title>Family Chores</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/site.css" />
   </head>
-  
-  <body class="bodyFlex">
 
+  <body class="bodyFlex">
     <!-- Navbar -->
     <nav class="navbar navbar-default navbar-static-top">
-      <span class="navbar-brand navbar-custom ">Family Chores</span>
-      
-      <div class="container-fluid">  
+      <span class="navbar-brand navbar-custom">Family Chores</span>
+
+      <div class="container-fluid">
         <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle"
-            data-toggle="collapse"
-            data-target="#myNavbar"
-          >
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -39,17 +30,12 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#"
-                ><span class="glyphicon glyphicon-user"></span> Parent</a
-              >
+              <a href="#" ><span class="glyphicon glyphicon-user"></span> Parent</a >
             </li>
           </ul>
         </div>
-
       </div>
     </nav>
-
-
 
     <div class="box">
       <div class="container-fluid text-center">
@@ -59,19 +45,13 @@
             <div class="family_score_container">
               <h2>Chores</h2>
               <h3>To Do</h3>
-              <button
-                type="button"
-                class="btn btn-link"
-                data-toggle="modal"
-                data-target="#choreModal">
+              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#choreModal" >
                 Add Chore +
               </button>
             </div>
             <div class="toAcceptContainer">
               <ul id="tblChores">
-
-                  <!-- generates ToDo:s here -->
-
+                <!-- generates ToDo:s here -->
               </ul>
             </div>
 
@@ -89,54 +69,40 @@
                   <div class="modal-body leftAlign">
                     <div class="mb-3">
                       <label for="txtChore" class="form-label">Chore</label>
-                      <input
-                        type="text"
-                        name="Chore"
-                        id="txtChore"
-                        class="form-control"
-                      />
+                      <input type="text" name="Chore" id="txtChore" class="form-control" />
                     </div>
-    
+
                     <div class="mb-3">
                       <label for="txtScore" class="form-label">Score</label>
-                      <input
-                        type="text"
-                        name="Score"
-                        id="txtScore"
-                        class="form-control"
-                      />
+                      <input type="text" name="Score" id="txtScore" class="form-control" />
                     </div>
-    
+
                     <div class="mb-3">
-                      <label for="txtReward" class="form-label">Set Reward</label>
+                      <label for="txtReward" class="form-label"
+                        >Set Reward</label
+                      >
                       <input type="text" class="form-control" id="txtReward" />
                     </div>
-    
+
                     <div class="mb-3">
-                      <label for="txtDate" class="form-label">Set Due Date</label>
+                      <label for="txtDate" class="form-label"
+                        >Set Due Date</label
+                      >
                       <input type="date" class="form-control" id="txtDate" />
                     </div>
-    
+
                     <div class="mb-3">
                       <label for="txtTime" class="form-label">Set Time</label>
                       <input type="time" class="form-control" id="txtTime" />
                     </div>
-    
+
                     <div class="mb-3">
-                      <label for="txtDescription" class="form-label">Set Description</label>
-                      <textarea
-                        class="form-control"
-                        id="txtDescription"
-                        rows="3"
-                      ></textarea>
+                      <label for="txtDescription" class="form-label" >Set Description</label >
+                      <textarea class="form-control" id="txtDescription" rows="3" ></textarea>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button
-                      type="button"
-                      id="btnAdd"
-                      data-dismiss="modal"
-                      onclick="addChore()">
+                    <button type="button" id="btnAdd" data-dismiss="modal" onclick="addChore()" >
                       Add
                     </button>
                     <button type="button" id="btnClear" onclick="clearChores()">
@@ -146,30 +112,22 @@
                 </div>
               </div>
             </div>
-    
 
-            <!-- Accept component -->          
-              <div class="toAcceptContainer">
-                <h3>To Accept</h3>
-                <ul id="toAcceptTable">
-                      <!-- generates to accept items here -->
-                </ul>
-              </div>
-    
-    
+            <!-- Accept component -->
+            <div class="toAcceptContainer">
+              <h3>To Accept</h3>
+              <ul id="toAcceptTable">
+                <!-- generates to accept items here -->
+              </ul>
+            </div>
           </div>
-    
+
           <div class="col-sm-6">
             <!-- Family score -->
             <div class="family_score_container">
               <h2>Family Goals</h2>
               <h3>To Reach</h3>
-              <button
-                type="button"
-                class="btn btn-link"
-                data-toggle="modal"
-                data-target="#goalModal"
-              >
+              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#goalModal" >
                 Add Goal +
               </button>
               <ul class="list-group family_score_list">
@@ -190,35 +148,22 @@
                   </div>
                   <div class="modal-body">
                     <div class="mb-3">
-                      <label for="goal_title" class="form-label">Title<span class="mandatory">*</span></label>
+                      <label for="goal_title" class="form-label" >Title<span class="mandatory">*</span></label >
                       <input type="text" class="form-control" id="goal_title" />
                     </div>
-    
+
                     <div class="mb-3">
-                      <label for="goal_description" class="form-label"
-                        >Description<span class="mandatory">*</span></label
-                      >
-                      <textarea
-                        class="form-control"
-                        id="goal_description"
-                        rows="3"
-                      ></textarea>
+                      <label for="goal_description" class="form-label" >Description<span class="mandatory">*</span></label >
+                      <textarea class="form-control" id="goal_description" rows="3" ></textarea>
                     </div>
-    
+
                     <div class="mb-3">
-                      <label for="goal_reward" class="form-label"
-                        >Possible reward</label
-                      >
+                      <label for="goal_reward" class="form-label" >Possible reward</label >
                       <input type="text" class="form-control" id="goal_reward" />
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button
-                      type="button"
-                      onclick="addFamilyGoal()"
-                      class="btn btn-default"
-                      data-dismiss="modal"
-                    >
+                    <button type="button" onclick="addFamilyGoal()" class="btn btn-default" data-dismiss="modal" >
                       Save
                     </button>
                   </div>
@@ -227,25 +172,22 @@
             </div>
           </div>
         </div>
+      </div>
     </div>
-  </div>
 
     <!-- Footer -->
-  <footer class="container-fluid fullWidth footer fixed-bottom">
-    <h5>Family Chores</h5>
-    <p>
-      Family Chores is a tool that helps families manage and communicate
-      chores in a fun way.
-    </p>
-    <div class="line">
-      <span class="glyphicon glyphicon-envelope"></span>
-      <p>XXX@familychores.com</p>
-    </div>
-  </footer>
+    <footer class="container-fluid fullWidth footer fixed-bottom">
+      <h5>Family Chores</h5>
+      <p>
+        Family Chores is a tool that helps families manage and communicate
+        chores in a fun way.
+      </p>
+      <div class="line">
+        <span class="glyphicon glyphicon-envelope"></span>
+        <p>XXX@familychores.com</p>
+      </div>
+    </footer>
 
-  
     <script src="js/parentview.js"></script>
   </body>
 </html>
-
-

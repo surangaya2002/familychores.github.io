@@ -1,7 +1,7 @@
 // Categories for data
 let toDo = "toDo";
-const toAccept = "toAccept";
 const goal = "goal"
+
 
 $(document).ready(function () {
       updateScore();
@@ -15,6 +15,8 @@ const score = 1200;
 $("#childScore").html(score);
 }
   
+
+// Updates the todo and to approve tables 
 function updateChildToDo() {
 
     // Get all session data
@@ -27,6 +29,7 @@ function updateChildToDo() {
     // Make the cards
     data.forEach(item => {
 
+        // Create the icons for score and reward
         let scoreAndRewardSection = "";
         if (item.score != "") {
             scoreAndRewardSection += "<div class='scoreLine'> <div class='coinLayer1'> <div class='coinLayer2'> <p class='coinText'>"+ item.score +"</p> </div> </div></div>";
@@ -35,22 +38,19 @@ function updateChildToDo() {
             scoreAndRewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
         }
 
-        
         // if a declined todo
         if (item.category === toDo && item.done == false &&item.retry === true){
 
             let style = " style='background: rgba(240, 38, 38, 0.4)'";
             let li = getToDoCardChild(item, scoreAndRewardSection, true, style);
-    
-            // Append card
+            
             $("#childToDoList").append(li); 
-    
+
         // if a todo
         } else if(item.category === toDo && item.done === false) {
 
             let li = getToDoCardChild(item, scoreAndRewardSection, true, '');
 
-            // Append card
             $("#childToDoList").append(li);   
         
         // if a to approve
@@ -59,27 +59,29 @@ function updateChildToDo() {
             let style = " style='background: rgba(77, 161, 169, 0.4)'";
             let li = getToDoCardChild(item, scoreAndRewardSection, false, style);
 
-            // Append card
             $("#childToBeApprovedList").append(li); 
         } 
-
     });
 }
 
+
 function markChoreAsDone(id){
+  // Get the session data via key
   let item = JSON.parse(sessionStorage.getItem(id));
 
+  // Set chore as done
   item.done = true;
-
   sessionStorage.setItem(id, JSON.stringify(item));
 
   // Reload page
   location.reload();
 }
 
+
 // Generates a collapsable card
 function getToDoCardChild(item, rewardIcons, showDoneButton, style) {
 
+    // Create a "done" button if needed
     let doneButton = '';
     if (showDoneButton) {
         doneButton = '<button class="btr btr-info smallRoundButton" onclick="markChoreAsDone(\''+ item.id + '\')">Done</button>';

@@ -1,28 +1,6 @@
 // Categories for data
 let toDo = "toDo";
-const toAccept = "toAccept";
 const goal = "goal"
-
-// TEMP MOCKDATA
-// let itemData1 = {
-//   id: "childToDo1",
-//   chore: "Take out the garbage",
-//   score: 10,
-//   reward: "Movie",
-//   due: "",
-//   time: "",
-//   desc: "",
-// }
-// let itemData2 = {
-//   id: "childToDo2",
-//   chore: "Remove dishes from dishwasher",
-//   score: 15,
-//   reward: "",
-//   due: "",
-//   time: "",
-//   desc: "",
-// }
-// let data = [itemData1, itemData2];
 
 
 $(document).ready(function () {  
@@ -51,6 +29,7 @@ function addFamilyGoal() {
   }
 }
 
+
 function removeChore(id) {
   // Remove from session data
   sessionStorage.removeItem(id);
@@ -61,11 +40,11 @@ function removeChore(id) {
 
 
 function addChore() {
+  
   if ( $("#txtChore").val() == "") {
     alert("Chore is required!");
   
-  } else {
-  
+  } else { 
     // Get user data
     let item = {
       category: toDo,
@@ -90,7 +69,6 @@ function addChore() {
     // Append card
     $("#tblChores").append(li);
   }
-   
   clearChores();
 }
 
@@ -111,7 +89,7 @@ function clearFamilyGoals() {
 
 
 function acceptChore(id) {
-
+  // Get and set session data
   let item = JSON.parse(sessionStorage.getItem(id));
   item.accepted = true;
   sessionStorage.setItem(id, JSON.stringify(item));
@@ -122,13 +100,12 @@ function acceptChore(id) {
   location.reload();
 }
 
-function declineChore(id) {
 
-  let item = JSON.parse(sessionStorage.getItem(id));
-  
+function declineChore(id) {
+  // Get and set session data
+  let item = JSON.parse(sessionStorage.getItem(id));  
   item.done = false;
   item.retry = true;
-
   sessionStorage.setItem(id, JSON.stringify(item));
 
   // Reload page
@@ -150,28 +127,23 @@ function updateParentToDo() {
     // Make todo cards
     if(item.category === toDo && item.done == false && item.accepted == false) {
 
-      // Make the card
       let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, "");
-      
-      // Append the card
+
       $("#tblChores").append(li);
     
-      // Make accept cards
+    // Make accept cards
     } else if (item.category === toDo && item.done == true && item.accepted == false) {
       
-      // Make the card
       let acceptIcons = '<span title="accept" class="dot" onclick="acceptChore(\''+ item.id + '\')"> <span class="glyphicon glyphicon-ok"></span></span> <span title="decline" class="dot" onclick="declineChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>';
       let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, acceptIcons);
       
-      // Append card
       $("#toAcceptTable").append(li);
     } 
-  
   });    
 }
 
 
-// Generates a collapsable card
+// Generates a collapsable todo card
 function getToDoCard(id, chore, score, reward, due, time, desc, acceptIcons) {
    
     let listItem = "itemitemo" + id;
