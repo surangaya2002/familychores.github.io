@@ -318,6 +318,7 @@ h1, h2, h3, h4, h5, h6 {
   color: white;
   background: var(--navColor);
   border: none;
+  padding: 7px;
 }
 
 /* Set full width **/
@@ -338,6 +339,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* To Accept List*/
+
+
 .toAcceptContainer {
   width: 100%; 
   display: flex;
@@ -347,7 +350,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .toAcceptContainer li {
-  background-color: var(--footerColor);
+  background-color: var(--footerColor); 
   margin: 10px 0; 
   min-height: 50px;
   text-align: left;
@@ -395,7 +398,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .iconButton, .iconButton:hover, .iconButton:active, .iconButton:visited {
-  background: var(--footerColor) !important;
+  background: none !important;
   color: black !important;
   border: none !important;
   -webkit-box-shadow: none;
@@ -451,6 +454,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 45px;
   width: 45px;
   background-color: #FCB26E;
+  border: solid white 1px;
   border-radius: 50%;
 
   display: flex;

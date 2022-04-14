@@ -14,8 +14,7 @@ const score = 1200;
 // TODO count score...
 $("#childScore").html(score);
 }
-
-
+  
 function updateChildToDo() {
 
     // Get all session data
@@ -26,35 +25,78 @@ function updateChildToDo() {
     });
 
     // Make the cards
-    data.forEach(itemData => {
+    data.forEach(item => {
 
-        // Check if it is a ToDo item
-        if(itemData.category === toDo) {
+        let scoreAndRewardSection = "";
+        if (item.score != "") {
+            scoreAndRewardSection += "<div class='scoreLine'> <div class='coinLayer1'> <div class='coinLayer2'> <p class='coinText'>"+ item.score +"</p> </div> </div></div>";
+        }
+        if (item.reward != "") {
+            scoreAndRewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
+        }
 
-            let scoreAndRewardSection = "";
-            if (itemData.score != "") {
-                scoreAndRewardSection += "<div class='scoreLine'> <div class='coinLayer1'> <div class='coinLayer2'> <p class='coinText'>"+ itemData.score +"</p> </div> </div></div>";
-            }
-            if (itemData.reward != "") {
-                scoreAndRewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
-            }
+        
+        // if a declined todo
+        if (item.category === toDo && item.done == false &&item.retry === true){
 
-            let li = "<li id=item'" + itemData.id + "'> "+
-            "<div class='listItemRow'>" + 
-            itemData.chore + "<div class='acceptIcons'> <div id='rewardrow"+ itemData.id +"' class='acceptIcons'> " +
-            "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  itemData.id + "' aria-expanded='false' aria-controls='"+  itemData.id + "'></i></button>" +
-            "</div> </div> </div> <div class='collapse listItemContent' id='"+  itemData.id + "'> <div class='card card-body'> <p> Score: " + 
-            itemData.score + " points<br>Reward: " + 
-            itemData.reward + "<br><br>Due date: " + 
-            itemData.due + "<br>Time interval: " + 
-            itemData.time + "<br><br>Description: " + 
-            itemData.desc + "</p> </div> </div> </li>";
+            let style = " style='background: rgba(240, 38, 38, 0.4)'";
+            let li = getToDoCardChild(item, scoreAndRewardSection, true, style);
+    
+            // Append card
+            $("#childToDoList").append(li); 
+    
+        // if a todo
+        } else if(item.category === toDo && item.done === false) {
 
-            //TODO add DONE button
+            let li = getToDoCardChild(item, scoreAndRewardSection, true, '');
 
             // Append card
-            $("#childToDoList").append(li);
-            $("#rewardrow" + itemData.id).prepend(scoreAndRewardSection);     
-        }
+            $("#childToDoList").append(li);   
+        
+        // if a to approve
+        } else if (item.category === toDo && item.done === true && item.accepted === false){
+
+            let style = " style='background: rgba(77, 161, 169, 0.4)'";
+            let li = getToDoCardChild(item, scoreAndRewardSection, false, style);
+
+            // Append card
+            $("#childToBeApprovedList").append(li); 
+        } 
+
     });
 }
+
+function markChoreAsDone(id){
+  let item = JSON.parse(sessionStorage.getItem(id));
+
+  item.done = true;
+
+  sessionStorage.setItem(id, JSON.stringify(item));
+
+  // Reload page
+  location.reload();
+}
+
+// Generates a collapsable card
+function getToDoCardChild(item, rewardIcons, showDoneButton, style) {
+
+    let doneButton = '';
+    if (showDoneButton) {
+        doneButton = '<button class="btr btr-info smallRoundButton" onclick="markChoreAsDone(\''+ item.id + '\')">Done</button>';
+    }
+
+    let listItem = "itemChildTodo" + item.id;
+
+    let li = "<li id=item'" + listItem + style + "'> "+
+    "<div class='listItemRow'>" + 
+    item.chore + "<div class='acceptIcons'> <div class='acceptIcons'> " + rewardIcons + 
+    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  item.id + "' aria-expanded='false' aria-controls='"+  item.id + "'></i></button>" +
+    "</div> </div> </div> <div class='collapse listItemContent' id='"+  item.id + "'> <div class='card card-body'> <p> Score: " + 
+    item.score + " points<br>Reward: " + 
+    item.reward + "<br><br>Due date: " + 
+    item.due + "<br>Time interval: " + 
+    item.time + "<br><br>Description: " + 
+    item.desc + "</p> <div id='bottomButtons' class='cardButtons'> " + doneButton + "</div></div> </div> </li>";
+
+    return li;
+  }
