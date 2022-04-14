@@ -60,7 +60,6 @@ function removeChore(id) {
 }
 
 
-
 function addChore() {
   if ( $("#txtChore").val() == "") {
     alert("Chore is required!");
@@ -68,7 +67,7 @@ function addChore() {
   } else {
   
     // Get user data
-    let itemData = {
+    let item = {
       category: toDo,
       id: "ParentToDo" + Date.now(),
       chore:   $("#txtChore").val(),
@@ -80,23 +79,10 @@ function addChore() {
     }
 
     // Set session data
-    sessionStorage.setItem(itemData.id, JSON.stringify(itemData));
+    sessionStorage.setItem(item.id, JSON.stringify(item));
 
     // Make the card  
-    let listItem = "itemitemo" + itemData.id;  
-    let li = "<li id='" + listItem + "'> "+
-    "<div class='listItemRow'>" + 
-    itemData.chore + "<div class='acceptIcons'> <div class='acceptIcons'> " +
-    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+   itemData.id + "' aria-expanded='false' aria-controls='"+   itemData.id + "'></i></button>" +
-    "</div> </div> </div> <div class='collapse listItemContent' id='"+   itemData.id + "'> <div class='card card-body'> <div class='cardSections'>  <p> Score: " + 
-    itemData.score + " <br>Reward: " + 
-    itemData.reward + "<br><br>Due date: " + 
-    itemData.due + "<br>Time interval: " + 
-    itemData.time + "<br><br>Description: " + 
-    itemData.desc + "</p>" + 
-    "<div class='cardButtons'> "+ 
-    '<span class="glyphicon glyphicon-remove-circle" onclick="removeChore(\''+ itemData.id + '\')"/>' +
-    "</div></div></div></div> </li>";
+    let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc);
 
     // Append card
     $("#tblChores").append(li);
@@ -132,7 +118,6 @@ function declineChore(itemId) {
 
 
 function updateParentToDo() {
-  
     // Get all session data
   let keys = Object.keys(sessionStorage);
   let data = [];
@@ -141,32 +126,43 @@ function updateParentToDo() {
   });
 
   // Make the cards
-  data.forEach(itemData => {
+  data.forEach(item => {
 
     // Check if data is a todo item
-    if(itemData.category === toDo) {
+    if(item.category === toDo) {
 
     // Set session data
-    sessionStorage.setItem(itemData.id, JSON.stringify(itemData))
+    sessionStorage.setItem(item.id, JSON.stringify(item))
   
-    // Make the card    
-    let listItem = "itemitemo" + itemData.id;
-    let li = "<li id='" + listItem + "'> "+
-    "<div class='listItemRow'>" + 
-    itemData.chore + "<div class='acceptIcons'> <div class='acceptIcons'> " +
-    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+   itemData.id + "' aria-expanded='false' aria-controls='"+   itemData.id + "'></i></button>" +
-    "</div> </div> </div> <div class='collapse listItemContent' id='"+   itemData.id + "'> <div class='card card-body'> <div class='cardSections'>  <p> Score: " + 
-    itemData.score + " <br>Reward: " + 
-    itemData.reward + "<br><br>Due date: " + 
-    itemData.due + "<br>Time interval: " + 
-    itemData.time + "<br><br>Description: " + 
-    itemData.desc + "</p>" + 
-    "<div class='cardButtons'> "+ 
-    '<span class="glyphicon glyphicon-remove-circle" onclick="removeChore(\''+ itemData.id + '\')"/>' +
-    "</div></div></div></div> </li>";
+    //Make the card
+    let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc);
 
     // Append card
     $("#tblChores").append(li);
     }
   });    
 }
+
+
+// Generates a collapsable card
+function getToDoCard(id, chore, score, reward, due, time, desc, acceptIcons = "") {
+   
+    let listItem = "itemitemo" + id;
+    
+    let li = "<li id='" + listItem + "'> "+
+    "<div class='listItemRow'>" + 
+    chore + "<div class='acceptIcons'> <div class='acceptIcons'> " +
+    acceptIcons +
+    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  id + "' aria-expanded='false' aria-controls='"+   id + "'></i></button>" +
+    "</div> </div> </div> <div class='collapse listItemContent' id='"+ id + "'> <div class='card card-body'> <div class='cardSections'>  <p> Score: " + 
+    score + " <br>Reward: " + 
+    reward + "<br><br>Due date: " + 
+    due + "<br>Time interval: " + 
+    time + "<br><br>Description: " + 
+    desc + "</p>" + 
+    "<div id='bottomButtons' class='cardButtons'> " + 
+    '<span class="glyphicon glyphicon-remove-circle" onclick="removeChore(\''+ id + '\')"/>' + 
+    "</div></div></div></div> </li>";
+
+    return li;
+  }
