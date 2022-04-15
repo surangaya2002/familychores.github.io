@@ -165,6 +165,10 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--navColor) !important;
 }
 
+.orange-header {
+  color: var(--titleColor); 
+}
+
 /* Introduction index.html */ 
 .introduction{
   height: 100%;
@@ -547,6 +551,23 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+/* recently earned childview */ 
+
+.childEarned_container li{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.childEarned_container .dot {
+  margin-right: 10px;
+}
+
+.childEarned_container h2{
+  text-align: left;
 }
 
 /* Table chores parentview */
