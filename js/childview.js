@@ -11,9 +11,26 @@ $(document).ready(function () {
 
 
 function updateScore() {
-const score = 1200; 
-// TODO count score...
-$("#childScore").html(score);
+  // Default/start score
+  let score = 1200; 
+
+   // Get all session data
+   let keys = Object.keys(sessionStorage);
+   let data = [];
+   keys.forEach(key => {
+       data.push(JSON.parse(sessionStorage.getItem(key)));
+   });
+
+   data.forEach(item => {
+    // Sum score on all todo:s that are accepted
+    if (item.category === toDo && item.accepted == true ){ 
+    if (parseInt(item.score)){
+      score = score + parseInt(item.score);
+    }   
+    } 
+   });
+
+  $("#childScore").html(score);
 }
   
 
@@ -30,27 +47,18 @@ function updateChildToDo() {
     // Make the cards
     data.forEach(item => {
 
-        // Create the icons for score and reward
-        let scoreAndRewardSection = "";
-        if (item.score != "") {
-            scoreAndRewardSection += "<div class='scoreLine'> <div class='coinLayer1'> <div class='coinLayer2'> <p class='coinText'>"+ item.score +"</p> </div> </div></div>";
-        }
-        if (item.reward != "") {
-            scoreAndRewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
-        }
-
         // if a declined todo
-        if (item.category === toDo && item.done == false &&item.retry === true){
+        if (item.category === toDo && item.done == false && item.retry === true){
 
             let style = " style='background: rgba(240, 38, 38, 0.4)'";
-            let li = getToDoCardChild(item, scoreAndRewardSection, true, style);
+            let li = getToDoCardChild(item, true, style);
             
             $("#childToDoList").append(li); 
 
         // if a todo
         } else if(item.category === toDo && item.done === false) {
 
-            let li = getToDoCardChild(item, scoreAndRewardSection, true, '');
+            let li = getToDoCardChild(item, true, '');
 
             $("#childToDoList").append(li);   
         
@@ -58,7 +66,7 @@ function updateChildToDo() {
         } else if (item.category === toDo && item.done === true && item.accepted === false){
 
             let style = " style='background: var(--acceptColor);'";
-            let li = getToDoCardChild(item, scoreAndRewardSection, false, style);
+            let li = getToDoCardChild(item, false, style);
 
             $("#childToBeApprovedList").append(li); 
         } 
@@ -80,7 +88,16 @@ function markChoreAsDone(id){
 
 
 // Generates a collapsable card
-function getToDoCardChild(item, rewardIcons, showDoneButton, style) {
+function getToDoCardChild(item, showDoneButton, style) {
+
+    // Create the icons for score and reward
+    let rewardIcons = "";
+    if (item.score != "") {
+      rewardIcons += "<div class='scoreLine'> <div class='coinLayer1'> <div class='coinLayer2'> <p class='coinText'>"+ item.score +"</p> </div> </div></div>";
+    }
+    if (item.reward != "") {
+      rewardIcons += "<span class='glyphicon glyphicon-gift dot'></span>"; 
+    }
 
     // Create a "done" button if needed
     let doneButton = '';
@@ -115,7 +132,7 @@ function getGoalCard(id, title, reward, desc) {
         rewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
     }
     
-    let li = "<li id='" + listItem + "'> "+
+    let li = "<div class='progressBar'></div> <li id='" + listItem + "'> " +
     "<div class='listItemRow'>" + title + "<div class='acceptIcons'> <div class='acceptIcons'> " + rewardSection + 
     "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  id + "' aria-expanded='false' aria-controls='"+   id + "'></i></button>" +
     "</div></div></div> <div class='collapse listItemContent' id='"+ id + "'> <div class='card card-body'> <div class='cardSections'> " + 

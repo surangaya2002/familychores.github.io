@@ -7,10 +7,10 @@
       
       --titleColor: #FFA630;
 
-      --acceptColor: rgba(187, 186, 232, 0.7);
+      --acceptColor: rgba(77, 161, 169, 0.4);
       --progressBarColor: rgba(146, 144, 213, 1);
 
-      --goalColor: rgba(77, 161, 169, 0.4);
+      --goalColor:  rgba(187, 186, 232, 0.7);
     }
 
     .bodyFlex{
@@ -550,6 +550,13 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.progressBar{
+  background: var(--progressBarColor);
+  width: 40%;
+  height: 20px;
+  border-radius: 10px;
 }
 
 /* recently earned childview */ 
