@@ -58,8 +58,26 @@ let chore1 = {
     accepted: false,
     retry: false,
   }
+
+  let goal1 = {
+    category: goal,
+    id: "goal1",
+    title: "Complete 10 chores",
+    reward: "Trip to the zoo",
+    desc: "Complete 10 random chores",
+    done: false,
+  }
+
+  let goal2 = {
+    category: goal,
+    id: "goal2",
+    title: "Collect 2000 points",
+    reward: "Cinnamon buns",
+    desc: "",
+    done: false,
+  }
   
-  let data = [chore1, chore2, chore3, chore4];
+  let data = [chore1, chore2, chore3, chore4, goal1, goal2];
   
 
   $(document).ready(function () {  

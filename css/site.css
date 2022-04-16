@@ -7,8 +7,10 @@
       
       --titleColor: #FFA630;
 
-      --childGoalColor: rgba(187, 186, 232, 0.7);
+      --acceptColor: rgba(187, 186, 232, 0.7);
       --progressBarColor: rgba(146, 144, 213, 1);
+
+      --goalColor: rgba(77, 161, 169, 0.4);
     }
 
     .bodyFlex{
@@ -251,34 +253,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.family_score_container h2 {
-  text-align: left;
-  color: var(--titleColor); 
-  order: 1; 
-  width: 100%
-}
-
-.family_score_container h3 {
-  text-align: left;
-  width: 50%; 
-  order: 2; 
-  align-self: flex-start;
-}
-
-.family_score_container button {
-  text-align: right;
-  width: 50%; 
-  order: 2; 
-  align-self: flex-end;
-  margin-bottom: 10px; 
-  color: black; 
-}
-.family_score_container ul {
-  order: 3; 
-  width: 100%; 
+  justify-content: space-between;
 }
 
 .family_score_list li {
@@ -288,6 +263,32 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   color: black; 
   font-size: 1.2em; 
+}
+
+.family_score_container h2 {
+  text-align: left;
+  color: var(--titleColor); 
+  width: 100%;
+  /* order: 1;  */
+}
+
+.family_score_container h3 {
+  text-align: left;
+  width: 50%; 
+  align-self: flex-start;
+  /* order: 2;  */
+}
+
+.family_score_container button {
+  text-align: right;
+  /* width: 50%;  */
+  align-self: flex-end;
+  color: black; 
+  /* order: 2;  */
+}
+
+.goal li{
+  background-color: var(--goalColor) !important;
 }
 
 #goalModal .modal-header{
@@ -343,8 +344,6 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* To Accept List*/
-
-
 .toAcceptContainer {
   width: 100%; 
   display: flex;

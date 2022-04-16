@@ -5,14 +5,14 @@ const goal = "goal"
 
 $(document).ready(function () {  
   updateParentToDo();
+  updateFamilyGoals();
 });
 
 
 function addFamilyGoal() {
   var title = $("#goal_title").val();
   var description = $("#goal_description").val();
-
-  //var reward = document.getElementById("goal_reward").value;
+  var reward = $("#goal_reward").val();
 
   if(title == "" ) {
     alert("Title is mandatory!");
@@ -23,9 +23,24 @@ function addFamilyGoal() {
     clearFamilyGoals();
     return 0; 
   } else {
-      // Create new li element
-    var newList = "<li class='list-group-item'>" + title + "</li>";
-    $(".family_score_list").append(newList);
+
+    let item = {
+      category: goal,
+      id: "Goal" + Date.now(),
+      title: title,
+      reward: reward,
+      desc: description,
+      done: false,
+    }
+    
+    // Set session data
+    sessionStorage.setItem(item.id, JSON.stringify(item));
+
+    // Create new li element      
+    let newList = getGoalCard(item.id, item.title, item.reward, item.desc);
+
+    // Append new li element
+    $("#parentFamilyGoalList").append(newList);
   }
 }
 
@@ -165,3 +180,42 @@ function getToDoCard(id, chore, score, reward, due, time, desc, acceptIcons) {
 
     return li;
   }
+
+  // Generates a collapsable todo card
+function getGoalCard(id, title, reward, desc) {
+   
+  let listItem = "goalitem" + id;
+  
+  let li = "<li id='" + listItem + "'> "+
+  "<div class='listItemRow'>" + title +
+  "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  id + "' aria-expanded='false' aria-controls='"+   id + "'></i></button>" +
+  "</div> <div class='collapse listItemContent' id='"+ id + "'> <div class='card card-body'> <div class='cardSections'> " + 
+  "Reward: " + reward +
+  "<br><br>Description: " + desc + "</p>" + 
+  "</div></div></div> </li>";
+
+  return li;
+}
+
+
+
+function updateFamilyGoals(){
+
+  // Get all session data
+  let keys = Object.keys(sessionStorage);
+  let data = [];
+  keys.forEach(key => {
+      data.push(JSON.parse(sessionStorage.getItem(key)));
+  });
+
+  // Make the cards
+  data.forEach(item => {
+
+    // Make the goal cards
+    if(item.category === goal && item.done == false) {
+
+      let li = getGoalCard(item.id, item.title, item.reward, item.desc);
+      $("#parentFamilyGoalList").append(li);
+    } 
+  });    
+}

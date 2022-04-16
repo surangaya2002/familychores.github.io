@@ -48,11 +48,11 @@
               <button type="button" class="btn btn-link" data-toggle="modal" data-target="#choreModal" >
                 Add Chore +
               </button>
-            </div>
-            <div class="toAcceptContainer">
-              <ul id="tblChores">
-                <!-- generates ToDo:s here -->
-              </ul>
+              <div class="toAcceptContainer">
+                <ul id="tblChores">
+                  <!-- generates ToDo:s here -->
+                </ul>
+              </div>
             </div>
 
             <!-- Modal to add chore-->
@@ -129,10 +129,13 @@
               <h3>To Reach</h3>
               <button type="button" class="btn btn-link" data-toggle="modal" data-target="#goalModal" >
                 Add Goal +
-              </button>
-              <ul class="list-group family_score_list">
-                <li class="list-group-item">Complete 10 chores</li>
-              </ul>
+              </button>  
+      
+              <div class="toAcceptContainer">       
+                <ul id="parentFamilyGoalList" class="list-group family_score_list">
+                      <!-- generates to goal items here -->
+                </ul>
+              </div>
             </div>
             <!-- Modal to add goal to family goal-->
             <!-- Modal -->
