@@ -1,5 +1,6 @@
 $(document).ready(function () { });
 
+// function on login.html page 
 function navigateLogin() {
   var username = document.getElementById("floatingInput").value;
   var password = document.getElementById("floatingPassword").value;
@@ -11,12 +12,13 @@ function navigateLogin() {
   }
 }
 
+// function to add family goal in parenview.html 
 function addFamilyGoal() {
   var title = $("#goal_title").val();
   var description = $("#goal_description").val();
-
   //var reward = document.getElementById("goal_reward").value;
 
+  // Validate input (Right now only null value)
   if(title == "" ) {
     alert("Title is mandatory!");
     clearFamilyGoals(); 
@@ -26,9 +28,11 @@ function addFamilyGoal() {
     clearFamilyGoals();
     return 0; 
   } else {
+
       // Create new li element
     var newList = "<li class='list-group-item'>" + title + "</li>";
     $(".family_score_list").append(newList);
+
   }
 }
 
@@ -39,7 +43,7 @@ function removeChore(chore_text) {
   $('#tblChores tr:contains(' + chore_text + ')').remove();   
 }
 
-
+// Add chore in the parentview.html
 function addChore() {
   if ( $("#txtChore").val() == "") {
     alert("Chore is required!");
@@ -75,6 +79,7 @@ function addChore() {
   clearChores();
 }
 
+// Clear values in chores (Help function)
 function clearChores() {
   $("#txtChore").val("");
   $("#txtScore").val("");
@@ -90,7 +95,7 @@ function clearFamilyGoals() {
   $("#goal_reward").val(""); 
 }
 
-
+// accept and decline chore functions 
 function acceptChore(itemId) {
   $(itemId).remove();
   console.log("accept chore");
