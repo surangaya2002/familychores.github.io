@@ -1,17 +1,79 @@
-    /* Vairables for colors in site */
-    :root {
-      --navColor: #4DA1A9;
-      --lightNavColor: rgba(215, 232, 186, 0.3);
+/* Vairables for colors in site */
+:root {
+  --navColor: #4DA1A9;
+  --lightNavColor: rgba(215, 232, 186, 0.3);
+  --footerColor: #D7E8BA;  
+  --titleColor: #FFA630;
+  --acceptColor: rgba(77, 161, 169, 0.4);
+  --progressBarColor: rgba(146, 144, 213, 1);
+  --goalColor:  rgba(187, 186, 232, 0.7);
+}
 
-      --footerColor: #D7E8BA;
-      
-      --titleColor: #FFA630;
+/* other color classes */ 
 
-      --acceptColor: rgba(77, 161, 169, 0.4);
-      --progressBarColor: rgba(146, 144, 213, 1);
+.color-white{
+  color: white !important;
+}
+.back-color-nav{
+  background: var(--navColor) !important;
+}
 
-      --goalColor:  rgba(187, 186, 232, 0.7);
-    }
+.orange-header {
+  color: var(--titleColor); 
+}
+
+.lightBackground{
+  background: var(--lightNavColor);
+}
+
+.close{
+  color: white  !important;
+  opacity: 1;
+}
+
+/* Generic css code */
+html, body {
+  height: 100%;
+  margin: 0;  
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+/* Set full width **/
+.fullWidth{
+  width: 100%;
+  margin-top: 5px;
+}
+
+/* Set hight of container */ 
+.container {
+  min-height: 92%;
+  padding: 16px;
+}
+
+/* Make the button round **/
+.roundButton{
+  border-radius: 30px;
+  color: white;
+  background: var(--navColor);
+  width: 12%; 
+  min-width: 200px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.smallRoundButton{
+  border-radius: 30px;
+  color: white;
+  background: var(--navColor);
+  border: none;
+  padding: 7px;
+}
 
     .bodyFlex{
       width: 100%;
@@ -24,10 +86,6 @@
       margin: 40px;
     }
     
-    .lightBackground{
-      background: var(--lightNavColor);
-    }
-
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -105,39 +163,12 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-
-.container {
-  padding: 16px;
-}
-
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
-}
-
-.close
-{
-  color: white  !important;
-  opacity: 1;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;  
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-  letter-spacing: 1px;
-}
-
-.container {
-  min-height: 92%;
-  padding: 0;
 }
 
 /* Navbar */ 
@@ -153,22 +184,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   letter-spacing: 1px;
   font-size: 1.2em; 
-  /* margin: 15px;  */
-}
-
-.navbar-right span {
-  /* margin: 5px; */
-}
-
-.color-white{
-  color: white !important;
-}
-.back-color-nav{
-  background: var(--navColor) !important;
-}
-
-.orange-header {
-  color: var(--titleColor); 
 }
 
 /* Introduction index.html */ 
@@ -194,13 +209,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 70px; 
 }
 
-/* .introduction a:first-of-type {
-  background-color: var(--navColor); 
-} */
-
 .introduction a:last-of-type {
   color: black;
 }
+
+/* introduction ends 
 
 /* Form login */ 
 .login{
@@ -246,6 +259,7 @@ h1, h2, h3, h4, h5, h6 {
   color: red; 
 }
 
+/* Login form ends */ 
 
 /* Parent view */ 
 .family_score_container {
@@ -269,22 +283,18 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   color: var(--titleColor); 
   width: 100%;
-  /* order: 1;  */
 }
 
 .family_score_container h3 {
   text-align: left;
   width: 50%; 
   align-self: flex-start;
-  /* order: 2;  */
 }
 
 .family_score_container button {
   text-align: right;
-  /* width: 50%;  */
   align-self: flex-end;
   color: black; 
-  /* order: 2;  */
 }
 
 .goal li{
@@ -303,42 +313,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   margin: 10px 0; 
 }
+/* Parent view ends */ 
 
-
-/* Make the button round **/
-.roundButton{
-  border-radius: 30px;
-  color: white;
-  background: var(--navColor);
-  width: 12%; 
-  min-width: 200px;
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: none;
-}
-
-.smallRoundButton{
-  border-radius: 30px;
-  color: white;
-  background: var(--navColor);
-  border: none;
-  padding: 7px;
-}
-
-/* Set full width **/
-.fullWidth{
-  width: 100%;
-  margin-top: 5px;
-}
-
-.choresTableHeader
-{
+.choresTableHeader{
   background-color: var(--footerColor);
 }
 
-.leftAlign
-{
+.leftAlign{
   text-align: left;
 }
 
@@ -359,14 +340,11 @@ h1, h2, h3, h4, h5, h6 {
   text-align: left;
   color: black; 
   font-size: 1.2em; 
-
   list-style-type: none;
-  
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-
   border-radius: 5px;
   padding: 10px;
 }
@@ -390,12 +368,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
   border-radius: 50%;
   margin-right: 15px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   color: var(--navColor);
   cursor: pointer;
 }
@@ -430,7 +406,6 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--lightNavColor);
   border-radius: 20px;
   padding: 15px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -459,7 +434,6 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FCB26E;
   border: solid white 1px;
   border-radius: 50%;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -471,10 +445,8 @@ h1, h2, h3, h4, h5, h6 {
   height: 35px;
   width: 35px;
   background-color: #FCCC6E;
-  
   border: solid white 1px;
   border-radius: 50%;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -522,7 +494,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .childContainer h2{
   color: var(--titleColor);
-
 }
 
 .listItemRow .coinLayer1{
@@ -575,6 +546,8 @@ h1, h2, h3, h4, h5, h6 {
 .childEarned_container h2{
   text-align: left;
 }
+/* recently earned childview ends */ 
+
 
 /* Table chores parentview */
 #tblChores tr td:last-of-type span {
