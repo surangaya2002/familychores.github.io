@@ -122,6 +122,30 @@
             </div>
           </div>
 
+          <!-- Modal to add description why chore was decline-->
+          <div id="declineDescModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+            <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Decline description</h4>
+                </div>
+                
+                <div class="modal-body leftAlign">
+                  <div class="mb-3">
+                    <label for="txtChore" class="form-label">Decline description</label>
+                    <input type="text" name="declineDesc" id="declinedesc" class="form-control" />
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" id="btnDecline" data-dismiss="modal">Save</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
           <div class="col-sm-6">
             <!-- Family score -->
             <div class="family_score_container">

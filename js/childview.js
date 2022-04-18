@@ -51,7 +51,7 @@ function updateChildToDo() {
         if (item.category === toDo && item.done == false && item.retry === true){
 
             let style = " style='background: rgba(240, 38, 38, 0.4)'";
-            let li = getToDoCardChild(item, true, style);
+            let li = getToDoCardChild(item, true, style, true);
             
             $("#childToDoList").append(li); 
 
@@ -88,7 +88,7 @@ function markChoreAsDone(id){
 
 
 // Generates a collapsable card
-function getToDoCardChild(item, showDoneButton, style) {
+function getToDoCardChild(item, showDoneButton, style, decline=false) {
 
     // Create the icons for score and reward
     let rewardIcons = "";
@@ -116,7 +116,16 @@ function getToDoCardChild(item, showDoneButton, style) {
     item.reward + "<br><br>Due date: " + 
     item.due + "<br>Time interval: " + 
     item.time + "<br><br>Description: " + 
-    item.desc + "</p> <div id='bottomButtons' class='cardButtons'> " + doneButton + "</div></div> </div> </li>";
+    item.desc; 
+    
+    // if chore was decline by parent, add an decline description
+    if(decline) {
+      li += "<br><br>Decline description: " + item.declineDesc + "</p>";
+    } else{
+      li += "</p>"; 
+    }
+
+    li += "<div id='bottomButtons' class='cardButtons'> " + doneButton + "</div></div> </div> </li>";
 
     return li;
   }

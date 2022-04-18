@@ -78,8 +78,12 @@ function addChore() {
     // Set session data
     sessionStorage.setItem(item.id, JSON.stringify(item));
 
+    // set icons 
+    let Icons = '<span title="update" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="decline" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>'
+
+
     // Make the card  
-    let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, "");
+    let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, Icons);
 
     // Append card
     $("#tblChores").append(li);
@@ -117,14 +121,20 @@ function acceptChore(id) {
 
 
 function declineChore(id) {
-  // Get and set session data
-  let item = JSON.parse(sessionStorage.getItem(id));  
-  item.done = false;
-  item.retry = true;
-  sessionStorage.setItem(id, JSON.stringify(item));
 
-  // Reload page
-  location.reload();
+  $("#btnDecline").on("click", function(){
+
+    // Get and set session data
+    let item = JSON.parse(sessionStorage.getItem(id));  
+    item.done = false;
+    item.retry = true;
+    item.declineDesc = $("#declinedesc").val();  
+    sessionStorage.setItem(id, JSON.stringify(item));
+
+    // Reload page
+    location.reload();
+
+  }); 
 }
 
 function updateChore(id) {
@@ -193,7 +203,7 @@ function updateParentToDo() {
     // Make accept cards
     } else if (item.category === toDo && item.done == true && item.accepted == false) {
       
-      let acceptIcons = '<span title="accept" class="dot" onclick="acceptChore(\''+ item.id + '\')"> <span class="glyphicon glyphicon-ok"></span></span> <span title="decline" class="dot" onclick="declineChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>';
+      let acceptIcons = '<span title="accept" class="dot" onclick="acceptChore(\''+ item.id + '\')"> <span class="glyphicon glyphicon-ok"></span></span> <span data-toggle="modal" data-target="#declineDescModal" title="decline" class="dot" onclick="declineChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>';
       let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, acceptIcons);
       
       $("#toAcceptTable").append(li);
