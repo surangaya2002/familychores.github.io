@@ -127,6 +127,49 @@ function declineChore(id) {
   location.reload();
 }
 
+function updateChore(id) {
+  // get Chore
+  let item = JSON.parse(sessionStorage.getItem(id));
+  
+  // set chore information
+  $("#txtChore").val(item.chore);
+  $("#txtScore").val(item.score);
+  $("#txtReward").val(item.reward);
+  $("#txtDate").val(item.due);
+  $("#txtTime").val(item.time);
+  $("#txtDescription").val(item.desc);
+
+  // remove regular function to add chore 
+  $("#btnAdd").removeAttr("onclick"); 
+
+  $("#btnAdd").on("click", function(){
+    
+    // remove the chore that are going to be updated 
+    sessionStorage.removeItem(id); 
+
+    // get the changes chore information 
+    let item = {
+      category: toDo,
+      id: "ParentToDo" + Date.now(),
+      chore:   $("#txtChore").val(),
+      score: $("#txtScore").val(),
+      reward: $("#txtReward").val(),
+      due: $("#txtDate").val(),
+      time: $("#txtTime").val(),
+      desc: $("#txtDescription").val(),
+      done: false,
+      accepted: false,
+      retry: false,
+    }
+
+    // set updated item in sessionStorage
+    sessionStorage.setItem(item.id, JSON.stringify(item)); 
+
+    // Reload page
+    location.reload();
+  }); 
+}
+
 
 function updateParentToDo() {
     // Get all session data
@@ -142,7 +185,8 @@ function updateParentToDo() {
     // Make todo cards
     if(item.category === toDo && item.done == false && item.accepted == false) {
 
-      let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, "");
+      let Icons = '<span title="update" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="decline" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>'
+      let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, Icons);
 
       $("#tblChores").append(li);
     
@@ -165,7 +209,7 @@ function getToDoCard(id, chore, score, reward, due, time, desc, acceptIcons) {
     
     let li = "<li id='" + listItem + "'> "+
     "<div class='listItemRow'>" + 
-    chore + "<div class='acceptIcons'> <div class='acceptIcons'> " +
+    chore + "<div class='acceptIcons'> <div class='acceptIcons'> " + 
     acceptIcons +
     "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  id + "' aria-expanded='false' aria-controls='"+   id + "'></i></button>" +
     "</div> </div> </div> <div class='collapse listItemContent' id='"+ id + "'> <div class='card card-body'> <div class='cardSections'>  <p> Score: " + 
@@ -174,12 +218,11 @@ function getToDoCard(id, chore, score, reward, due, time, desc, acceptIcons) {
     due + "<br>Time interval: " + 
     time + "<br><br>Description: " + 
     desc + "</p>" + 
-    "<div id='bottomButtons' class='cardButtons'> " + 
-    '<span class="glyphicon glyphicon-remove-circle" onclick="removeChore(\''+ id + '\')"/>' + 
+    "<div id='bottomButtons' class='cardButtons'> " +
     "</div></div></div></div> </li>";
 
     return li;
-  }
+  } 
 
   // Generates a collapsable todo card
 function getGoalCard(id, title, reward, desc) {
