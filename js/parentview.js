@@ -195,7 +195,7 @@ function updateParentToDo() {
     // Make todo cards
     if(item.category === toDo && item.done == false && item.accepted == false) {
 
-      let Icons = '<span title="update" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="decline" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>'
+      let Icons = '<span title="Edit" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="Delete" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-trash"></span> </span>'
       let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, Icons);
 
       $("#tblChores").append(li);
@@ -203,7 +203,7 @@ function updateParentToDo() {
     // Make accept cards
     } else if (item.category === toDo && item.done == true && item.accepted == false) {
       
-      let acceptIcons = '<span title="accept" class="dot" onclick="acceptChore(\''+ item.id + '\')"> <span class="glyphicon glyphicon-ok"></span></span> <span data-toggle="modal" data-target="#declineDescModal" title="decline" class="dot" onclick="declineChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>';
+      let acceptIcons = '<span title="Accept" class="dot" onclick="acceptChore(\''+ item.id + '\')"> <span class="glyphicon glyphicon-ok"></span></span> <span data-toggle="modal" data-target="#declineDescModal" title="Decline" class="dot" onclick="declineChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>';
       let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, acceptIcons);
       
       $("#toAcceptTable").append(li);
