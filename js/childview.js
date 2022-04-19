@@ -120,7 +120,7 @@ function getToDoCardChild(item, showDoneButton, style, decline=false) {
     
     // if chore was decline by parent, add an decline description
     if(decline) {
-      li += "<br><br>Decline description: " + item.declineDesc + "</p>";
+      li += "<br><br>Why it failed: " + item.declineDesc + "</p>";
     } else{
       li += "</p>"; 
     }

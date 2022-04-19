@@ -29,6 +29,7 @@ let chore1 = {
     done: false,
     accepted: false,
     retry: true,
+    declineDesc: "Lego is on the floor" 
   }
 
   let chore3 = {
@@ -62,16 +63,16 @@ let chore1 = {
   let goal1 = {
     category: goal,
     id: "goal1",
-    title: "Complete 10 chores",
+    title: "Clean the whole apartment",
     reward: "Trip to the zoo",
-    desc: "Complete 10 random chores",
+    desc: "Complete all cleaning chores",
     done: false,
   }
 
   let goal2 = {
     category: goal,
     id: "goal2",
-    title: "Collect 2000 points",
+    title: "Collect 3000 points",
     reward: "Cinnamon buns",
     desc: "",
     done: false,
