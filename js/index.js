@@ -11,7 +11,7 @@ let chore1 = {
     reward: "",
     due: "",
     time: "",
-    desc: "",
+    desc: "Recycle the plastic waste",
     done: false,
     accepted: false,
     retry: false,
@@ -22,14 +22,14 @@ let chore1 = {
     id: "ParentToDo2",
     chore: "Clean bedroom",
     score: 50,
-    reward: "Icecream",
+    reward: "Ice cream",
     due: "2022-04-25",
-    time: "",
+    time: "18:00",
     desc: "Make the room shine!",
     done: false,
     accepted: false,
     retry: true,
-    declineDesc: "Lego is on the floor" 
+    declineDesc: "There is still lego on the floor" 
   }
 
   let chore3 = {
@@ -38,8 +38,8 @@ let chore1 = {
     chore: "Take out the dishes from the dishwasher",
     score: "",
     reward: "",
-    due: "",
-    time: "",
+    due: "2022-04-21",
+    time: "20:00",
     desc: "",
     done: false,
     accepted: false,
@@ -52,8 +52,8 @@ let chore1 = {
     chore: "Do the math homework",
     score: "5",
     reward: "",
-    due: "",
-    time: "",
+    due: "2022-04-26",
+    time: "19:00",
     desc: "Count task 4 - 19",
     done: true,
     accepted: false,
@@ -74,7 +74,7 @@ let chore1 = {
     id: "goal2",
     title: "Collect 3000 points",
     reward: "Cinnamon buns",
-    desc: "",
+    desc: "Do random chores to collect points",
     done: false,
   }
   
