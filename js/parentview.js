@@ -79,7 +79,7 @@ function addChore() {
     sessionStorage.setItem(item.id, JSON.stringify(item));
 
     // set icons 
-    let Icons = '<span title="update" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="decline" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>'
+    let Icons = '<span title="Edit" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="Delete" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-trash"></span> </span>'
 
 
     // Make the card  
