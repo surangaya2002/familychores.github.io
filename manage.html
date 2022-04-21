@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Family Chores</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/site.css" />
+  </head>
+
+  <body class="bodyFlex">
+    <!-- Navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <span class="navbar-brand navbar-custom">Family Chores</span>
+
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse back-color-nav" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a class="color-white" href="./childview.html">Child</a></li>
+            <li><a class="color-white" href="./manage.html">Manage</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#" ><span class="glyphicon glyphicon-user"></span> Parent</a >
+            </li>          
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--Form-->
+    <div class="box">
+        
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                      <label for="inputFname">Firt Name</label>
+                      <input type="text" class="form-control" id="inputFname" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label for="inputLname">Last Name</label>
+                      <input type="text" class="form-control" id="inputLname" placeholder="Password">
+                    </div>
+                  </div>
+                <div class="form-row">
+                  <div class="form-group col-sm-6">
+                    <label for="inputEmail4">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                  </div>
+                </div>
+            </form>
+        </div>
+
+
+    <!-- Footer -->
+    <footer class="container-fluid fullWidth footer fixed-bottom">
+      <h5>Family Chores</h5>
+      <p>
+        Family Chores is a tool that helps families manage and communicate
+        chores in a fun way.
+      </p>
+      <div class="line">
+        <span class="glyphicon glyphicon-envelope"></span>
+        <p>contact@familychores.com</p>
+      </div>
+    </footer>
+
+    <script src="js/parentview.js"></script>
+  </body>
+</html>
