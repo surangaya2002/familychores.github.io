@@ -400,6 +400,40 @@ input[type=text], input[type=password] {
   margin-top: 5px;
 }
 
+.gameBox {
+  background-image: url("../images/game.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 25% 15%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  height: 125px;
+}
+/* gameview */
+.game-progress {
+  height: 100vh; 
+  z-index: 1;
+}
+
+.back-button {
+  z-index: 2;
+  position: absolute;
+  top: 65px;
+  color: var(--titleColor);
+  font-size: 40px;
+  left: 20px;
+  text-shadow: 0px 0px 10px black;
+}
+
+.back-button:hover {
+  text-decoration: none;
+  color: var(--titleColor);
+  opacity: 0.8; 
+}
 
 /* ChildView */
 .profileBox{
