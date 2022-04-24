@@ -1,6 +1,10 @@
 // Categories for data
 let toDo = "toDo";
-const goal = "goal"
+const scoreGoal = "scoreGoal";
+const choreGoal = "choreGoal";
+
+// Default/start score
+let score = 1200; 
 
 
 $(document).ready(function () {
@@ -11,9 +15,6 @@ $(document).ready(function () {
 
 
 function updateScore() {
-  // Default/start score
-  let score = 1200; 
-
    // Get all session data
    let keys = Object.keys(sessionStorage);
    let data = [];
@@ -131,45 +132,99 @@ function getToDoCardChild(item, showDoneButton, style, decline=false) {
   }
 
   
-// Generates a collapsable goal card
-function getGoalCard(id, title, reward, desc) {
-   
-    let listItem = "goalitem" + id;
+  function updateFamilyGoals(){
+    // Get all session data
+    let keys = Object.keys(sessionStorage);
+    let data = [];
+    keys.forEach(key => {
+        data.push(JSON.parse(sessionStorage.getItem(key)));
+    });
+  
+    // Make the goal cards
+    data.forEach(item => {
+  
+      // if a chore goal card
+      if (item.category === choreGoal && !item.done) {
+  
+        // Get progress
+        let noOfChoresDone = 0;
+        let noOfChores = 0; 
+        item.chores.forEach(subChore => {
+          let s = JSON.parse(sessionStorage.getItem(subChore));
+          if (s != null) {
+            noOfChores++;
+            if(s.accepted){
+              noOfChoresDone++;
+            }
+          }
+        });
+        
+        let li = getChoreGoalCard(item, noOfChoresDone/noOfChores);
+        $("#childFamilyGoals").append(li);  
+      
+      // if a score goal card
+      } else if (item.category === scoreGoal && !item.done) {
+  
+        // Get progress
+        let progress = score/item.points;
+        if(progress > 1){
+          progress = 1;
+        }
+  
+        let li = getScoreGoalCard(item,  progress);
+        $("#childFamilyGoals").append(li);  
+      }
+    });      
+  }
+  
 
+  function getChoreGoalCard(item, progress) {
+    // List sub chores
+    let subChores = "";
+    item.chores.forEach(subChore => {
+      let s = JSON.parse(sessionStorage.getItem(subChore));
+      if (s != null) {
+        subChores = subChores + "<br>- " + s.chore; 
+      }
+    });
+  
     let rewardSection = "";
-    if (reward != "") {
+    if (item.reward != "") {
         rewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
     }
+  
+    let progressPercentage = "width: " + progress*100 + "%; ";
+    let listItem = "goalitem" + item.id;
     
-    let li = "<div class='progressBar'></div> <li id='" + listItem + "'> " +
-    "<div class='listItemRow'>" + title + "<div class='acceptIcons'> <div class='acceptIcons'> " + rewardSection + 
-    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  id + "' aria-expanded='false' aria-controls='"+   id + "'></i></button>" +
-    "</div></div></div> <div class='collapse listItemContent' id='"+ id + "'> <div class='card card-body'> <div class='cardSections'> " + 
-    "Reward: " + reward +
-    "<br><br>Description: " + desc + "</p>" + 
+    let li = "<div class='progressBarBorder'> <div class='progressBar' style='"+ progressPercentage +"'></div></div> <li id='" + listItem + "'> "+
+    "<div class='listItemRow'>" + item.title + "<div class='acceptIcons'> <div class='acceptIcons'> " + rewardSection + 
+    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+ item.id + "' aria-expanded='false' aria-controls='"+ item.id + "'></i></button>" +
+    "</div></div></div> <div class='collapse listItemContent' id='"+ item.id + "'> <div class='card card-body'> <div class='cardSections'> " + 
+    "Reward: " + item.reward +
+    "<br> <br> Description: " + item.desc + 
+    "<br> <br> Chores to complete:" + subChores + " </p>" +
+    "</div></div></div> </li>";
+    
+    return li;
+  }
+  
+
+  function getScoreGoalCard(item, progress) {    
+    let rewardSection = "";
+    if (item.reward != "") {
+        rewardSection += "<span class='glyphicon glyphicon-gift dot'></span>"; 
+    }
+  
+    let listItem = "scoreGoalItem" + item.id;
+    let progressPercentage = "width: " + progress*100 + "%; ";
+  
+    let li = "<div class='progressBarBorder'> <div class='progressBar' style='"+ progressPercentage +"'></div></div> <li id='" + listItem + "'> "+
+    "<div class='listItemRow'>" + item.title + "<div class='acceptIcons'> <div class='acceptIcons'> " + rewardSection + 
+    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  item.id + "' aria-expanded='false' aria-controls='"+ item.id + "'></i></button>" +
+    "</div></div></div> <div class='collapse listItemContent' id='"+ item.id + "'> <div class='card card-body'> <div class='cardSections'> " + 
+    "Reward: " + item.reward +
+    "<br><br>Description: " + item.desc + " </p>" + 
     "</div></div></div> </li>";
   
     return li;
   }
-
-
-function updateFamilyGoals(){
-  
-  // Get all session data
-  let keys = Object.keys(sessionStorage);
-  let data = [];
-  keys.forEach(key => {
-      data.push(JSON.parse(sessionStorage.getItem(key)));
-  });
-
-  // Make the cards
-  data.forEach(item => {
-
-    // Make the goal cards
-    if(item.category === goal && item.done == false) {
-
-      let li = getGoalCard(item.id, item.title, item.reward, item.desc);
-      $("#childFamilyGoals").append(li);
-    } 
-  });    
-}

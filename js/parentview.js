@@ -1,54 +1,19 @@
 // Categories for data
 let toDo = "toDo";
-const goal = "goal"
+const scoreGoal = "scoreGoal";
+const choreGoal = "choreGoal";
 
 
 $(document).ready(function () {  
   updateParentToDo();
   updateFamilyGoals();
+  updateCheckboxItems();
 });
-
-
-function addFamilyGoal() {
-  var title = $("#goal_title").val();
-  var description = $("#goal_description").val();
-  var reward = $("#goal_reward").val();
-
-  if(title == "" ) {
-    alert("Title is mandatory!");
-    clearFamilyGoals(); 
-    return 0; 
-  } else if (description == "") {
-    alert("A Chore needs a description!");
-    clearFamilyGoals();
-    return 0; 
-  } else {
-
-    let item = {
-      category: goal,
-      id: "Goal" + Date.now(),
-      title: title,
-      reward: reward,
-      desc: description,
-      done: false,
-    }
-    
-    // Set session data
-    sessionStorage.setItem(item.id, JSON.stringify(item));
-
-    // Create new li element      
-    let newList = getGoalCard(item.id, item.title, item.reward, item.desc);
-
-    // Append new li element
-    $("#parentFamilyGoalList").append(newList);
-  }
-}
 
 
 function removeChore(id) {
   // Remove from session data
   sessionStorage.removeItem(id);
-
   // Reload page
   location.reload();
 }
@@ -77,16 +42,8 @@ function addChore() {
 
     // Set session data
     sessionStorage.setItem(item.id, JSON.stringify(item));
-
-    // set icons 
-    let Icons = '<span title="Edit" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="Delete" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-trash"></span> </span>'
-
-
-    // Make the card  
-    let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, Icons);
-
-    // Append card
-    $("#tblChores").append(li);
+    // Reload page
+    location.reload();
   }
   clearChores();
 }
@@ -101,9 +58,13 @@ function clearChores() {
 }
 
 function clearFamilyGoals() {
-  $("#goal_title").val(""); 
-  $("#goal_description").val(""); 
-  $("#goal_reward").val(""); 
+  $("#goal_title_score").val(""); 
+  $("#goal_description_score").val(""); 
+  $("#goal_reward_score").val(""); 
+  
+  $("#goal_title_chore").val(""); 
+  $("#goal_description_chore").val(""); 
+  $("#goal_reward_chore").val(""); 
 }
 
 
@@ -234,41 +195,182 @@ function getToDoCard(id, chore, score, reward, due, time, desc, acceptIcons) {
     return li;
   } 
 
-  // Generates a collapsable todo card
-function getGoalCard(id, title, reward, desc) {
-   
-  let listItem = "goalitem" + id;
+// Generates a collapsable chore goal card
+function getChoreGoalCard(item) {
+
+  // List sub chores for goal
+  let subChores = "";
+  item.chores.forEach(subChore => {
+    let i = JSON.parse(sessionStorage.getItem(subChore));
+    if (i != null) {
+      subChores = subChores + "<br>- " + i.chore; 
+    }
+  });
+
+  let listItem = "goalitem" + item.id;
   
   let li = "<li id='" + listItem + "'> "+
-  "<div class='listItemRow'>" + title +
-  "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  id + "' aria-expanded='false' aria-controls='"+   id + "'></i></button>" +
-  "</div> <div class='collapse listItemContent' id='"+ id + "'> <div class='card card-body'> <div class='cardSections'> " + 
-  "Reward: " + reward +
-  "<br><br>Description: " + desc + "</p>" + 
+  "<div class='listItemRow'>" + item.title +
+  "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+ item.id + "' aria-expanded='false' aria-controls='"+ item.id + "'></i></button>" +
+  "</div> <div class='collapse listItemContent' id='"+ item.id + "'> <div class='card card-body'> <div class='cardSections'> " + 
+  "Reward: " + item.reward +
+  "<br> <br> Description: " + item.desc + 
+  "<br> <br> Chores to complete:" + subChores + " </p>" +
   "</div></div></div> </li>";
-
+  
   return li;
 }
 
-
-
-function updateFamilyGoals(){
-
-  // Get all session data
-  let keys = Object.keys(sessionStorage);
-  let data = [];
-  keys.forEach(key => {
-      data.push(JSON.parse(sessionStorage.getItem(key)));
-  });
-
-  // Make the cards
-  data.forEach(item => {
-
+  function getScoreGoalCard(item) {
+   
+    let listItem = "scoreGoalItem" + item.id;
+    
+    let li = "<li id='" + listItem + "'> "+
+    "<div class='listItemRow'>" + item.title +
+    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  item.id + "' aria-expanded='false' aria-controls='"+ item.id + "'></i></button>" +
+    "</div> <div class='collapse listItemContent' id='"+ item.id + "'> <div class='card card-body'> <div class='cardSections'> " + 
+    "Reward: " + item.reward +
+    "<br><br>Description: " + item.desc + " </p>" + 
+    "</div></div></div> </li>";
+  
+    return li;
+  }
+  
+  
+  function updateFamilyGoals() {
+  
+    // Get all session data
+    let keys = Object.keys(sessionStorage);
+    let data = [];
+    keys.forEach(key => {
+        data.push(JSON.parse(sessionStorage.getItem(key)));
+    });
+  
     // Make the goal cards
-    if(item.category === goal && item.done == false) {
-
-      let li = getGoalCard(item.id, item.title, item.reward, item.desc);
-      $("#parentFamilyGoalList").append(li);
+    data.forEach(item => {
+      if (item.category === choreGoal && item.done == false) {
+        
+        // Check and handle if sub-chores for the goal have been removed
+        let noOfSubChores = 0; 
+        item.chores.forEach(subChore => {
+          if (JSON.parse(sessionStorage.getItem(subChore)) != null) {
+            noOfSubChores++; 
+          }
+        });
+        if (noOfSubChores === 0) {
+          sessionStorage.removeItem(item.id);
+          location.reload();
+        }
+  
+        let li = getChoreGoalCard(item);
+        $("#parentFamilyGoalList").append(li);  
+      
+      } else if (item.category === scoreGoal && item.done == false) {
+        let li = getScoreGoalCard(item);
+        $("#parentFamilyGoalList").append(li);  
+      }
+    });    
+  }
+  
+  
+  function addScoreGoal(){
+    
+    var title = $("#goal_title_score").val();
+    var description = $("#goal_description_score").val();
+    var reward = $("#goal_reward_score").val();
+  
+    if(checkMandatoryGoalFields(title, description)) {
+  
+      // Check so score is greater than 0
+      if ( title <= 0 ) {
+        alert("Points need to be grater than 0");
+        clearFamilyGoals();
+        return 0; 
+      }
+  
+      let item = {
+        category: scoreGoal,
+        id: "ScoreGoal" + Date.now(),
+        title: "Have " + title + " points",
+        points: title,
+        reward: reward,
+        desc: description,
+        done: false,
+      }
+  
+      // Set session data
+      sessionStorage.setItem(item.id, JSON.stringify(item));
+      // Reload page
+      location.reload();
+    }
+  }
+  
+  
+  function addChoreGoal(){
+  
+    var title = $("#goal_title_chore").val();
+    var description = $("#goal_description_chore").val();
+    var reward = $("#goal_reward_chore").val();
+  
+    if(checkMandatoryGoalFields(title, description)) {
+  
+      // Get selected chores
+      let checkboxes = document.querySelectorAll('input[name="fam_goal_chore"]:checked');
+      let selectedChores = [];
+      checkboxes.forEach((checkbox) => {
+        selectedChores.push(checkbox.id);
+      });
+  
+      // Check so chores are selected
+      if (selectedChores.length === 0){
+        alert("You need to select at least one chore!");
+        clearFamilyGoals();
+        return 0; 
+      }
+      
+      let item = {
+        category: choreGoal,
+        id: "ChoreGoal" + Date.now(),
+        title: title,
+        reward: reward,
+        desc: description,
+        done: false,
+        chores: selectedChores,
+      }
+  
+      // Set session data
+      sessionStorage.setItem(item.id, JSON.stringify(item));
+      // Reload page
+      location.reload();
+    }
+  }
+  
+  
+  function updateCheckboxItems() {
+    // Get all session data
+    let keys = Object.keys(sessionStorage);
+    let data = [];
+    keys.forEach(key => {
+        data.push(JSON.parse(sessionStorage.getItem(key)));
+    });
+  
+    // Add chores as checkbox items
+    data.forEach(item => {
+      if(item.category === toDo && item.done == false) {
+  
+        let cb = '<div class="goal_chore">  <input type="checkbox" id="'+ item.id +'" name="fam_goal_chore"> <label for="'+ item.id +'">'+ item.chore +'</label> </div>';
+        $("#goal_chores_list").append(cb);
+      } 
+    }); 
+  }
+  
+  
+  function checkMandatoryGoalFields(title, description) {
+    
+    if(title == "" || description == "") {
+      alert("You need to fill out the mandatory fields marked with *");
+      clearFamilyGoals(); 
+      return false; 
     } 
-  });    
-}
+    return true;
+  }

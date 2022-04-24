@@ -1,6 +1,7 @@
 // Categories for data
 let toDo = "toDo";
-const goal = "goal";
+const scoreGoal = "scoreGoal";
+const choreGoal = "choreGoal";
 
 // TEMP SHOW DATA
 let chore1 = {
@@ -61,21 +62,23 @@ let chore1 = {
   }
 
   let goal1 = {
-    category: goal,
+    category: choreGoal,
     id: "goal1",
     title: "Clean the whole apartment",
     reward: "Trip to the zoo",
     desc: "Complete all cleaning chores",
+    chores: ["ParentToDo1", "ParentToDo2"],
     done: false,
   }
 
   let goal2 = {
-    category: goal,
+    category: scoreGoal,
     id: "goal2",
-    title: "Collect 3000 points",
+    title: "Have 3000 points",
     reward: "Cinnamon buns",
     desc: "Do random chores to collect points",
     done: false,
+    points: 3000,
   }
   
   let data = [chore1, chore2, chore3, chore4, goal1, goal2];

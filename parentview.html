@@ -69,7 +69,7 @@
                   </div>
                   <div class="modal-body leftAlign">
                     <div class="mb-3">
-                      <label for="txtChore" class="form-label">Chore</label>
+                      <label for="txtChore" class="form-label">Chore<span class="mandatory">*</span></label>
                       <input type="text" name="Chore" id="txtChore" class="form-control" />
                     </div>
 
@@ -144,52 +144,92 @@
             <div class="family_score_container">
               <h2>Family Goals</h2>
               <h3>To Reach</h3>
-              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#goalModal" >
-                Add Goal +
-              </button>  
+          
+              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#goalModalChore" > Add Chore Goal + </button> 
+              <button type="button" class="btn btn-link" data-toggle="modal" data-target="#goalModalScore" > Add Score Goal + </button>  
       
               <div class="toAcceptContainer">       
                 <ul id="parentFamilyGoalList" class="list-group family_score_list">
-                      <!-- generates to goal items here -->
+                  <!-- generates to goal items here -->
                 </ul>
               </div>
             </div>
-            <!-- Modal to add goal to family goal-->
-            <!-- Modal -->
-            <div id="goalModal" class="modal fade" role="dialog">
+      
+            <!-- Modal for score goal-->
+            <div id="goalModalScore" class="modal fade goalModal" role="dialog">
               <div class="modal-dialog">
-                <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                      &times;
-                    </button>
-                    <h4 class="modal-title">Add a Family Goal</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add a Family Score Goal</h4>
                   </div>
+                  
                   <div class="modal-body">
                     <div class="mb-3">
-                      <label for="goal_title" class="form-label" >Title<span class="mandatory">*</span></label >
-                      <input type="text" class="form-control" id="goal_title" />
+                      <label for="goal_title_score" class="form-label" >Number of points to have<span class="mandatory">*</span></label >
+                      <input type="number" class="form-control" id="goal_title_score" />
                     </div>
 
                     <div class="mb-3">
-                      <label for="goal_description" class="form-label" >Description<span class="mandatory">*</span></label >
-                      <textarea class="form-control" id="goal_description" rows="3" ></textarea>
+                      <label for="goal_description_score" class="form-label" >Description<span class="mandatory">*</span></label >
+                      <textarea class="form-control" id="goal_description_score" rows="3" ></textarea>
                     </div>
 
                     <div class="mb-3">
-                      <label for="goal_reward" class="form-label" >Possible reward</label >
-                      <input type="text" class="form-control" id="goal_reward" />
+                      <label for="goal_reward_score" class="form-label">Possible reward</label >
+                      <input type="text" class="form-control" id="goal_reward_score" />
                     </div>
                   </div>
+
                   <div class="modal-footer">
-                    <button type="button" onclick="addFamilyGoal()" class="btn btn-default" data-dismiss="modal" >
-                      Save
-                    </button>
+                    <button type="button" onclick="addScoreGoal()" class="btn btn-info smallRoundButton" data-dismiss="modal" >Add</button>
                   </div>
                 </div>
               </div>
             </div>
+
+            <!-- Modal for chore goal-->
+            <div id="goalModalChore" class="modal fade goalModal" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add a Family Chore Goal</h4>
+                  </div>
+                  
+                  <div class="modal-body">
+                    <div class="mb-3">
+                      <label for="goal_title_chore" class="form-label" >Title<span class="mandatory">*</span></label >
+                      <input type="text" class="form-control" id="goal_title_chore" />
+                    </div> 
+
+                    <div class="mb-3">
+                      <label for="goal_chores" class="form-label" >Chores to complete <span class="mandatory">*</span> </label >
+                        <div id="goal_chores_list">
+                          <!-- generates to chores to select here -->
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="goal_description_chore" class="form-label" >Description<span class="mandatory">*</span></label >
+                      <textarea class="form-control" id="goal_description_chore" rows="3" ></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="goal_reward_chore" class="form-label">Possible reward</label >
+                      <input type="text" class="form-control" id="goal_reward_chore" />
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" onclick="addChoreGoal()" class="btn btn-info smallRoundButton" data-dismiss="modal" >Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
           </div>
         </div>
       </div>

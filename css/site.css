@@ -37,10 +37,6 @@ html, body {
   margin: 0;  
 }
 
-.mb-3{
-  margin: 10px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   letter-spacing: 1px;
@@ -161,8 +157,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Full-width input fields */
 input[type=text], input[type=password] {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  /* padding: 12px 20px; 
+  margin: 8px 0;  */
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -174,6 +170,12 @@ input[type=text], input[type=password] {
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content label{
+  text-align: left;
+  width: 100%; 
+  margin: 10px 0; 
 }
 
 /* Navbar */ 
@@ -310,13 +312,28 @@ input[type=text], input[type=password] {
   background-color: var(--navColor) !important; 
 }
 
-#goalModal .modal-body label{
-  text-align: left;
-  width: 100%; 
-  font-size: 1.2em; 
-  letter-spacing: 1px;
+#goal_chores_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.goal_chore {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.goal_chore label {
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
   font-weight: 300;
-  margin: 10px 0; 
+}
+
+.goal_chore input {
+  padding: 0;
+  margin: 0;
 }
 /* Parent view ends */ 
 
@@ -564,9 +581,16 @@ input[type=text], input[type=password] {
 
 .progressBar{
   background: var(--progressBarColor);
-  width: 40%;
+  height: 100%;
+  border-radius: 10px
+}
+
+.progressBarBorder{
+  border: solid var(--goalColor) 2px;
   height: 20px;
+  width: 100%;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 /* recently earned childview */ 
