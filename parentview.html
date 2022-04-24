@@ -75,40 +75,32 @@
 
                     <div class="mb-3">
                       <label for="txtScore" class="form-label">Score</label>
-                      <input type="text" name="Score" id="txtScore" class="form-control" />
+                      <input type="number" name="Score" id="txtScore" class="form-control" />
                     </div>
 
                     <div class="mb-3">
-                      <label for="txtReward" class="form-label"
-                        >Set Reward</label
-                      >
+                      <label for="txtReward" class="form-label" >Reward</label >
                       <input type="text" class="form-control" id="txtReward" />
                     </div>
 
                     <div class="mb-3">
-                      <label for="txtDate" class="form-label"
-                        >Set Due Date</label
-                      >
+                      <label for="txtDate" class="form-label" >Due Date</label >
                       <input type="date" class="form-control" id="txtDate" />
                     </div>
 
                     <div class="mb-3">
-                      <label for="txtTime" class="form-label">Set Time</label>
+                      <label for="txtTime" class="form-label">Due Time</label>
                       <input type="time" class="form-control" id="txtTime" />
                     </div>
 
                     <div class="mb-3">
-                      <label for="txtDescription" class="form-label" >Set Description</label >
+                      <label for="txtDescription" class="form-label" >Description</label >
                       <textarea class="form-control" id="txtDescription" rows="3" ></textarea>
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" id="btnAdd" data-dismiss="modal" onclick="addChore()" >
-                      Add
-                    </button>
-                    <button type="button" id="btnClear" onclick="clearChores()">
-                      Clear
-                    </button>
+                    <button type="button" class="btn btn-info smallRoundButton" id="btnClear" onclick="clearChores()"> Clear </button>
+                    <button type="button" class="btn btn-info smallRoundButton" id="btnAdd" data-dismiss="modal" onclick="addChore()" > Add </button>
                   </div>
                 </div>
               </div>
@@ -138,10 +130,10 @@
                     <label for="txtChore" class="form-label">Decline description</label>
                     <input type="text" name="declineDesc" id="declinedesc" class="form-control" />
                   </div>
+                </div>
 
-                  <div class="modal-footer">
-                    <button type="button" id="btnDecline" data-dismiss="modal">Save</button>
-                  </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-info smallRoundButton" id="btnDecline" data-dismiss="modal">Save</button>
                 </div>
               </div>
           </div>

@@ -27,7 +27,7 @@
 }
 
 .close{
-  color: white  !important;
+  color: var(--navColor)  !important;
   opacity: 1;
 }
 
@@ -35,6 +35,10 @@
 html, body {
   height: 100%;
   margin: 0;  
+}
+
+.mb-3{
+  margin: 10px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,6 +77,8 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--navColor);
   border: none;
   padding: 7px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
     .bodyFlex{
@@ -138,8 +144,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .modal-header {
-      background-color: #555 !important;
-      color: white  !important;
+      color: black  !important;
       padding: 15px;
     }
 
