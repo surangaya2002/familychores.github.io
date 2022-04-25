@@ -685,3 +685,14 @@ input[type=text], input[type=password] {
   color: white; 
   cursor: pointer;
 }
+
+.score-shop {
+  position: absolute;
+  z-index: 2; 
+  top: 75px; 
+  right: 20px; 
+  color: var(--titleColor);  
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 10px;
+  border-radius: 10px;
+}

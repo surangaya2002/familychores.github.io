@@ -33,9 +33,6 @@
       </div>
 
       <div class="collapse navbar-collapse back-color-nav" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a class="color-white" href="./parentview.html">Parent</a></li>
-        </ul>
         <ul class="nav navbar-nav navbar-right">
           <li>
             <a href="#"
@@ -50,17 +47,27 @@
 
   <!-- Content -->
   <a href="game.html" class="glyphicon glyphicon-arrow-left back-button"></a>
+
+  <div class="scoreLine score-shop">
+    <div class="coinLayer1">
+      <div class="coinLayer2">
+      <p class="coinText">P</p>
+      </div>
+    </div>
+
+    <h2 id="childScore">points</h2>
+  </div>
   
   <div class="shop-list">
       <h2>Shop</h2>
       <ul>
-          <li>Space suit <span>50</span></li>
-          <li>Shiny gun <span>75</span></li>
-          <li>Oxygon container <span>25</span></li>
+          <li>Space suit <span onclick="GetItemInShop(50)">50</span></li>
+          <li>Shiny gun <span onclick="GetItemInShop(75)">75</span></li>
+          <li>Oxygon container <span onclick="GetItemInShop(25)">25</span></li>
       </ul>
   </div>
 
   <img src="images/space-background.jpg" class="game-progress"/>
-
+  <script src="js/game.js"></script>
 </body>
 </html>
