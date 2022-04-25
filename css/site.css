@@ -451,10 +451,30 @@ input[type=text], input[type=password] {
   text-shadow: 0px 0px 10px black;
 }
 
+.shop-button {
+  z-index: 2;
+  position: absolute; 
+  top: 65px; 
+  right: 35px; 
+  color: white; 
+  font-size: 25px;
+  letter-spacing: 1.5px;
+  padding: 10px; 
+  border-radius: 50%;
+  border: 2px solid white; 
+  background-color: var(--titleColor); 
+}
+
 .back-button:hover {
   text-decoration: none;
   color: var(--titleColor);
   opacity: 0.8; 
+}
+
+.shop-button:hover {
+  text-decoration: none;
+  color: white;
+  opacity: 0.8;
 }
 
 /* ChildView */
@@ -619,3 +639,49 @@ input[type=text], input[type=password] {
   cursor: pointer;
   line-height: 1.42857143;
 }  
+
+/* Shop list container */ 
+
+.shop-list {
+  position: absolute; 
+  margin-left: auto; 
+  margin-right: auto;
+  left: 0; 
+  right: 0; 
+  top: 30%; 
+  width: 500px; 
+  background-color: rgba(255, 255, 255, 0.9); 
+  z-index: 2;
+  border: 2px solid var(--titleColor); 
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px black;
+}
+
+.shop-list h2 {
+  text-align: center;
+  color: var(--titleColor); 
+}
+
+.shop-list ul {
+  margin: 10px 0; 
+}
+
+.shop-list li {
+  list-style: none;
+  margin: 25px 0; 
+  font-size: 1.2em; 
+}
+
+.shop-list span {
+  float: right; 
+  margin-right: 20px; 
+  border: 2px solid var(--titleColor); 
+  padding: 5px;  
+  border-radius: 25%;
+}
+
+.shop-list span:hover {
+  background-color: var(--titleColor); 
+  color: white; 
+  cursor: pointer;
+}
