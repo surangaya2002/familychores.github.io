@@ -16,6 +16,8 @@ function addAdult() {
         "</button>" +
         "</td>" +
         "</tr>");
+
+        clearAdult();
 }
 
 function clearAdult() {
@@ -88,6 +90,8 @@ function addChild() {
         "</button>" +
         "</td>" +
         "</tr>");
+
+        clearChild();
 }
 
 function clearChild() {
