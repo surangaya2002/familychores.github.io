@@ -31,10 +31,14 @@
   opacity: 1;
 }
 
+.col-sm-6 {
+  padding-bottom: 40px;
+}
+
 /* Generic css code */
 html, body {
-  height: 100%;
-  margin: 0;  
+  /* height: 100%; */
+  margin: 0; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -85,7 +89,10 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .box{
-      margin: 40px;
+      min-height: 90vh;
+      margin: 5vw;
+      margin-top: 2.5vw;
+      margin-bottom: 2.5vw;
     }
     
     /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -96,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px;}
+    /* .row.content {height: 450px;} */
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -207,6 +214,7 @@ input[type=text], input[type=password] {
   font-weight: 400; 
   margin: 10px 0;
   color: var(--navColor); 
+  padding-top: 10%;
 }
 
 .introduction p {
@@ -377,7 +385,6 @@ input[type=text], input[type=password] {
 }
 
 .acceptIcons{
-  width: 50%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -421,6 +428,7 @@ input[type=text], input[type=password] {
   padding: 5px;
   margin-top: 5px;
 }
+
 
 .gameBox {
   background-image: url("../images/game.jpg");
@@ -602,7 +610,7 @@ input[type=text], input[type=password] {
 .progressBar{
   background: var(--progressBarColor);
   height: 100%;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .progressBarBorder{
@@ -650,6 +658,7 @@ input[type=text], input[type=password] {
   right: 0; 
   top: 30%; 
   width: 500px; 
+  max-width: 90vw;
   background-color: rgba(255, 255, 255, 0.9); 
   z-index: 2;
   border: 2px solid var(--titleColor); 
@@ -700,7 +709,7 @@ input[type=text], input[type=password] {
 
 /* Image in modal */
 .modal-img {
-  max-width: 50%;
+  width: 50%;
   margin-top: 20px;
 }
 
