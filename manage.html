@@ -38,7 +38,7 @@
       </div>
     </nav>
 
-    <!--Form-->
+    <!--Adult Form-->
     <div class="panel-group">
       <div class="panel panel-default">
         <div class="panel-heading">Adult Users</div>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group col-sm-6">
                       <label for="inputLname">Last Name</label>
-                      <input type="text" class="form-control" id="inputLname" placeholder="Password">
+                      <input type="text" class="form-control" id="inputLname" placeholder="Last Name">
                     </div>
                   </div>
                 <div class="form-row">
@@ -96,9 +96,56 @@
         </div>  
         </div>
       </div>
+    </div>
+
+    <!--Child Form-->
+    <div class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">Child Users</div>
+        <div class="panel-body">
+          <div class="box">      
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-sm-6">
+                      <label for="inputFname">Firt Name</label>
+                      <input type="text" class="form-control" id="childFname" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-sm-6">
+                      <label for="inputLname">Last Name</label>
+                      <input type="text" class="form-control" id="childLname" placeholder="Last Name">
+                    </div>
+                  </div>
+                <div class="form-row">
+                  <div class="form-group col-sm-6">
+                    <label for="inputUserName">User Name</label>
+                    <input type="text" class="form-control" id="childUserName" placeholder="User Name">
+                  </div>
+                  <div class="form-group col-sm-6">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" id="childPassword" placeholder="Password">
+                  </div>
+                </div>
+                <div class="form-group col-sm-12">
+                <button type="button" class="btn btn-info smallRoundButton" id="btnChildClear" onclick="clearChild()"> Clear </button>
+                    <button type="button" class="btn btn-info smallRoundButton" id="btnChildAdd" onclick="addChild()" > Add </button>
+                  </div>
+            </form>
+            <div>
+              <table id="tblChildren" class="table">
+                <thead>
+                    <tr class="choresTableHeader">
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            </table>      
+            </div>
+        </div>  
+        </div>
+      </div>
       </div>
     
-
 
     <!-- Footer -->
     <footer class="container-fluid fullWidth footer fixed-bottom">

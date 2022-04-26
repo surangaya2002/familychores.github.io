@@ -11,9 +11,6 @@ function addAdult() {
         "<td>" + $("#inputEmail").val() + "</td>" +
         "<td>" + $("#inputTelephone").val() + "</td>" +
         "<td>" +
-        "<button type='button' onclick='adultEdit(this);' class='btn btn-default'>" +
-        "<span class='glyphicon glyphicon-edit' />" +
-        "</button>" +
         "<button type='button' onclick='adultDelete(this);' class='btn btn-default'>" +
         "<span title='Delete' class='glyphicon glyphicon-trash' />" +
         "</button>" +
@@ -73,4 +70,33 @@ function productUpdateInTable() {
     
     // Change Update Button Text
     $("#updateButton").text("Add");
+}
+
+function addChild() {
+    // First check if a <tbody> tag exists, add one if not
+    if ($("#tblChildren tbody").length == 0) {
+        $("#tblChildren").append("<tbody></tbody>");
+    }
+
+    // Append product to the table
+    $("#tblChildren tbody").append("<tr>" +
+        "<td>" + $("#childFname").val() + "</td>" +
+        "<td>" + $("#childLname").val() + "</td>" +
+        "<td>" +
+        "<button type='button' onclick='childDelete(this);' class='btn btn-default'>" +
+        "<span title='Delete' class='glyphicon glyphicon-trash' />" +
+        "</button>" +
+        "</td>" +
+        "</tr>");
+}
+
+function clearChild() {
+    $("#childFname").val("");
+    $("#childLname").val("");
+    $("#childUserName").val("");
+    $("#childPassword").val("");
+}
+
+function childDelete(ctl) {
+    $(ctl).parents("tr").remove();
 }
