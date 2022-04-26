@@ -38,6 +38,7 @@ function addChore() {
       done: false,
       accepted: false,
       retry: false,
+      image: $("#img-options-list").attr( "value" ),
     }
 
     // Set session data
@@ -73,8 +74,6 @@ function acceptChore(id) {
   let item = JSON.parse(sessionStorage.getItem(id));
   item.accepted = true;
   sessionStorage.setItem(id, JSON.stringify(item));
-
-  // Update child score.....
 
   // Reload page
   location.reload();
@@ -131,6 +130,7 @@ function updateChore(id) {
       done: false,
       accepted: false,
       retry: false,
+      image: $("#img-options-list").attr( "value" ),
     }
 
     // set updated item in sessionStorage
@@ -157,7 +157,7 @@ function updateParentToDo() {
     if(item.category === toDo && item.done == false && item.accepted == false) {
 
       let Icons = '<span title="Edit" class="dot" data-toggle="modal" data-target="#choreModal" onclick="updateChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-pencil"></span></span><span title="Delete" class="dot" onclick="removeChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-trash"></span> </span>'
-      let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, Icons);
+      let li = getToDoCard(item, Icons);
 
       $("#tblChores").append(li);
     
@@ -165,8 +165,8 @@ function updateParentToDo() {
     } else if (item.category === toDo && item.done == true && item.accepted == false) {
       
       let acceptIcons = '<span title="Accept" class="dot" onclick="acceptChore(\''+ item.id + '\')"> <span class="glyphicon glyphicon-ok"></span></span> <span data-toggle="modal" data-target="#declineDescModal" title="Decline" class="dot" onclick="declineChore(\''+ item.id + '\')"><span class="glyphicon glyphicon-remove"></span> </span>';
-      let li = getToDoCard(item.id, item.chore, item.score, item.reward, item.due, item.time, item.desc, acceptIcons);
-      
+      let li = getToDoCard(item, acceptIcons);
+
       $("#toAcceptTable").append(li);
     } 
   });    
@@ -174,26 +174,31 @@ function updateParentToDo() {
 
 
 // Generates a collapsable todo card
-function getToDoCard(id, chore, score, reward, due, time, desc, acceptIcons) {
-   
-    let listItem = "itemitemo" + id;
-    
-    let li = "<li id='" + listItem + "'> "+
-    "<div class='listItemRow'>" + 
-    chore + "<div class='acceptIcons'> <div class='acceptIcons'> " + 
-    acceptIcons +
-    "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  id + "' aria-expanded='false' aria-controls='"+   id + "'></i></button>" +
-    "</div> </div> </div> <div class='collapse listItemContent' id='"+ id + "'> <div class='card card-body'> <div class='cardSections'>  <p> Score: " + 
-    score + " <br>Reward: " + 
-    reward + "<br><br>Due date: " + 
-    due + "<br>Time interval: " + 
-    time + "<br><br>Description: " + 
-    desc + "</p>" + 
-    "<div id='bottomButtons' class='cardButtons'> " +
-    "</div></div></div></div> </li>";
+function getToDoCard(item, acceptIcons) {
+  
+  // Add image if given
+  let image = "";
+  if (item.image != "" && item.image != undefined) {
+    image = '<br> <img class="todo-img" src="'+ item.image +'" alt="image" /> ';
+  }
 
-    return li;
-  } 
+  let listItem = "itemitemo" + item.id;
+  
+  let li = "<li id='" + listItem + "'> "+
+  "<div class='listItemRow'>" + 
+  item.chore + "<div class='acceptIcons'> <div class='acceptIcons'> " + 
+  acceptIcons +
+  "<button class='btn btn-primary iconButton glyphicon glyphicon-menu-down' type='button' data-toggle='collapse' data-target='#"+  item.id + "' aria-expanded='false' aria-controls='"+   item.id + "'></i></button>" +
+  "</div> </div> </div> <div class='collapse listItemContent' id='"+ item.id + "'> <div class='card card-body'> <div class='cardSections'>  <p> Score: " + 
+  item.score + " <br>Reward: " + 
+  item.reward + "<br><br>Due date: " + 
+  item.due + "<br>Time interval: " + 
+  item.time + "<br><br>Description: " + 
+  item.desc + "</p>" + image +
+  "</div></div></div></div> </li>";
+
+  return li;
+}  
 
 // Generates a collapsable chore goal card
 function getChoreGoalCard(item) {
@@ -373,4 +378,12 @@ function getChoreGoalCard(item) {
       return false; 
     } 
     return true;
+  }
+
+  function showOptImage(src) {
+    // show image
+    $("#preview_image").attr("src", src);
+    
+    // set value that holds src on selected image
+    $("#img-options-list").attr("value", src);
   }

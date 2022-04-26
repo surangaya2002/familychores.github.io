@@ -126,6 +126,11 @@ function getToDoCardChild(item, showDoneButton, style, decline=false) {
       li += "</p>"; 
     }
 
+     // Add image if given
+     if (item.image != "" && item.image != undefined) {
+      li +='<br> <img class="todo-img" src="'+ item.image +'" alt="image" /> ';
+    }
+
     li += "<div id='bottomButtons' class='cardButtons'> " + doneButton + "</div></div> </div> </li>";
 
     return li;

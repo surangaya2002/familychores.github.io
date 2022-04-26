@@ -30,13 +30,14 @@ let chore1 = {
     done: false,
     accepted: false,
     retry: true,
-    declineDesc: "There is still lego on the floor" 
+    declineDesc: "There is still lego on the floor",
+    image: "./images/clean_floor.png", 
   }
 
   let chore3 = {
     category: toDo,
     id: "ParentToDo3",
-    chore: "Take out the dishes from the dishwasher",
+    chore: "Take out the clothes from the washing machine",
     score: "",
     reward: "",
     due: "2022-04-21",
@@ -45,6 +46,7 @@ let chore1 = {
     done: false,
     accepted: false,
     retry: false,
+    image: "./images/washing_machine.png",
   }
 
   let chore4 = {

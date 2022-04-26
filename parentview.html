@@ -97,6 +97,20 @@
                       <label for="txtDescription" class="form-label" >Description</label >
                       <textarea class="form-control" id="txtDescription" rows="3" ></textarea>
                     </div>
+
+                    <div class="mb-3">
+                      <label for="imgDesc" class="form-label">Choose image from list </label> 
+                      <div id="img-options-list" class="img-options" value="">
+                        <input class="option-img" type="image" id="optImg1" alt="washing machine" src="./images/washing_machine.png" onclick="showOptImage('./images/washing_machine.png')">
+                        <input class="option-img" type="image" id="optImg2" alt="shop" src="./images/shop.png" onclick="showOptImage('./images/shop.png')">
+                        <input class="option-img" type="image" id="optImg3" alt="clean floor" src="./images/clean_floor.png" onclick="showOptImage('./images/clean_floor.png')">  
+                      </div>
+                             
+                      <div class="modal-img-con-col">  
+                        <img id="preview_image" class="modal-img" /> 
+                      </div>
+                    </div>     
+                    
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-info smallRoundButton" id="btnClear" onclick="clearChores()"> Clear </button>
