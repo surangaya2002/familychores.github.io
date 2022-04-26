@@ -750,3 +750,11 @@ input[type=text], input[type=password] {
   margin-top: 10px;
   border-radius: 5px;
 }
+
+.removepadding {
+  padding-bottom: 0px !important;
+}
+
+.removeheight {
+  min-height: 0px !important;
+}
