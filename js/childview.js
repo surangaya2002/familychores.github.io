@@ -228,3 +228,25 @@ function getToDoCardChild(item, showDoneButton, style, decline=false) {
   
     return li;
   }
+
+  function getUserInput() {
+    $("#username").replaceWith("<input placeholder='Username' style='height:32px; margin:10px 0;' type='text'></input>"); 
+    
+    window.addEventListener("keydown", function(event){
+      if(event.defaultPrevented) {
+        return;
+      }
+      switch(event.key) {
+        // get value 
+        case "Enter":
+          var newUsername = "<h1>"; 
+            newUsername += $("input[placeholder='Username']").val() + "</h1>"; 
+            $("input[placeholder='Username']").replaceWith(newUsername); 
+            break; 
+        default: 
+          return; 
+      }
+
+      event.preventDefault(); 
+    }, true);
+  }
