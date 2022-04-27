@@ -453,8 +453,27 @@ input[type=text], input[type=password] {
 }
 /* gameview */
 .game-progress {
+  background-image: url("../images/game-progress.jpg");
   height: 100vh; 
-  z-index: 1;
+  background-position: center;
+  background-size: auto 100vh;
+  background-repeat: no-repeat;
+  background-color: rgb(10,5,83); 
+  z-index: -1;
+}
+
+.game-shop {
+  background-image: url("../images/space-background.jpg");
+  height: 100vh; 
+  background-position: center;
+  background-size: auto 100vh;
+  background-repeat: no-repeat;
+  background-color: rgb(10,5,83);
+  z-index: -1;
+}
+
+.game .navbar {
+  border-bottom: none;
 }
 
 .back-button {
