@@ -25,8 +25,8 @@ function clearAdult() {
     $("#inputLname").val("");
     $("#inputEmail").val("");
     $("#inputTelephone").val("");
-    $("#inputUserName").val("");
-    $("#inputPassword").val("");
+    $("#adultUserName").val("");
+    $("#adultPassword").val("");
 }
 
 function adultDelete(ctl) {
